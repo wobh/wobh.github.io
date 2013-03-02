@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post
 title: A couple of minor bugs
 date: 2013-02-28 14:33 -0800
 ---
