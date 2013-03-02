@@ -101,6 +101,13 @@ header {
   position:fixed;
 }
 
+strong {
+  color:#222;
+  font-weight:700;
+}
+
+/* [wc 2013-02-28 17:03 -0800] These are used for the download buttons on the minimal setup page, which isn't useful if you don't need buttons here.
+
 header ul {
   list-style:none;
   height:40px;
@@ -121,6 +128,8 @@ header ul {
   width:270px;
 }
 
+
+
 header li {
   width:89px;
   float:left;
@@ -138,10 +147,6 @@ header ul a {
   height:40px;
 }
 
-strong {
-  color:#222;
-  font-weight:700;
-}
 
 header ul li + li {
   width:88px;
@@ -158,6 +163,7 @@ header ul a strong {
   display:block;
   color:#222;
 }
+*/
 
 section {
   width:500px;
