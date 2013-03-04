@@ -1,4 +1,5 @@
 *~
 dev
-_site/
+_site/*
+_theme_packages/*
 _posts/embargo/*

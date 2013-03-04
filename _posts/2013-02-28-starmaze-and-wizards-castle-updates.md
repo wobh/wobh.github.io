@@ -1,10 +1,8 @@
 ---
 layout: post
-title: A couple of minor bugs
+title: Updates to StarMaze and Wizard's Castle
 date: 2013-02-28 14:33 -0800
 ---
-
-#### Updates to StarMaze and Wizard's Castle  #
 
 How embarrassing to show off one's code and find bugs right away, but there it was. 
 
