@@ -66,6 +66,7 @@ task :post do
     post.puts 'description: ""'
     post.puts "category: "
     post.puts "tags: []"
+    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H-%M-%S %z')}"
     post.puts "---"
     post.puts "{% include JB/setup %}"
   end
