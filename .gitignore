@@ -2,4 +2,4 @@
 dev
 _site/*
 _theme_packages/*
-_posts/embargo/*
+_posts/_embargo/*
