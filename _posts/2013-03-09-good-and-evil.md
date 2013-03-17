@@ -4,7 +4,7 @@ title: "Good and Evil"
 description: ""
 category: 
 tags: []
-date: 2013-03-09 17-19-30 -0800
+date: 2013-03-09 17:19:30 -0800
 ---
 {% include JB/setup %}
 
