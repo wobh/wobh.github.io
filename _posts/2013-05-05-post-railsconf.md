@@ -10,8 +10,9 @@ date: 2013-05-05 10:42:54 -0700
 
 Whew! 
 
-My last week at [Portland Code School](www.portlandcodeschool.com) was
-over a week ago, but last week we volunteered at
+My last week at
+[Portland Code School](http://www.portlandcodeschool.com) was over a
+week ago, but last week we volunteered at
 [Railsconf 2013](http://www.railsconf.com/) which was a tremendous
 opportunity to meet and hear from luminaries from throughout the Ruby
 and Rails Community. I got to meet and shake hands with
@@ -34,7 +35,7 @@ parties, which leads me to the most exciting thing that happened to me
 this week.
 
 One of the student team projects was a
-[Kickstarter](www.kickstarter.com) helper app which helps people with
+[Kickstarter](http://www.kickstarter.com) helper app which helps people with
 projects prepare for their Kickstarter campaign with checklists, and
 timelines. I wasn't on the Developer team of this project, but I was
 on the Stakeholders team. At the New Relic party last week I had the
