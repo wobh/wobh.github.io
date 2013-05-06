@@ -14,7 +14,7 @@ My last week at Portland Code School was over a week ago, but last
 week we volunteered at [Railsconf 2013](http://www.railsconf.com/)
 which was a tremendous opportunity to meet and hear from luminaries
 from throughout the Ruby and Rails Community. I got to meet and shake
-hands with Sandi Metz, ask [Richard Schneeman](http://schneems.com/)
+hands with [Sandi Metz](http://sandimetz.com), ask [Richard Schneeman](http://schneems.com/)
 questions about object inspection and using the standard library. As a
 volunteer I helped everyone with a last name starting with P,Q or R
 get registered (I feel sure that we at Team M-R had the fastest moving
@@ -32,7 +32,7 @@ parties, which leads me to the most exciting thing that happened to me
 this week.
 
 One of the student team projects was a
-[www.kickstarter.com/](Kickstarter) helper app which helps people with
+[Kickstarter](www.kickstarter.com) helper app which helps people with
 projects prepare for their Kickstarter campaign with checklists, and
 timelines. I wasn't on the Developer team of this project, but I was
 on the Stakeholders team. At the New Relic party last week I had the
@@ -61,3 +61,6 @@ work and think about Kickstarter and Kickstarter users. I feel like we
 all won something for this experience. After all, we practiced this
 sort of thing, in our lightning talks, and our project stand-ups and
 demos, and we did it, for reals.
+
+I can hardly say how grateful I am to Portland Code School and
+RailsConf for this.
