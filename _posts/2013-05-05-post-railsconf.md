@@ -10,18 +10,20 @@ date: 2013-05-05 10:42:54 -0700
 
 Whew! 
 
-My last week at Portland Code School was over a week ago, but last
-week we volunteered at [Railsconf 2013](http://www.railsconf.com/)
-which was a tremendous opportunity to meet and hear from luminaries
-from throughout the Ruby and Rails Community. I got to meet and shake
-hands with [Sandi Metz](http://sandimetz.com), ask [Richard Schneeman](http://schneems.com/)
-questions about object inspection and using the standard library. As a
-volunteer I helped everyone with a last name starting with P,Q or R
-get registered (I feel sure that we at Team M-R had the fastest moving
-line). I helped [Aaron Patterson](http://tenderlovemaking.com/) find
-the Speaker's Lounge, and sold leftover Railsconf 2013 T-shirts to
-raise money for Kids Ruby including to people going to another
-conference going on nearby.
+My last week at [Portland Code School](www.portlandcodeschool.com) was
+over a week ago, but last week we volunteered at
+[Railsconf 2013](http://www.railsconf.com/) which was a tremendous
+opportunity to meet and hear from luminaries from throughout the Ruby
+and Rails Community. I got to meet and shake hands with
+[Sandi Metz](http://sandimetz.com), ask
+[Richard Schneeman](http://schneems.com/) questions about object
+inspection and using the standard library. As a volunteer I helped
+everyone with a last name starting with P,Q or R get registered (I
+feel sure that we at Team M-R had the fastest moving line). I helped
+[Aaron Patterson](http://tenderlovemaking.com/) find the Speaker's
+Lounge, and sold leftover Railsconf 2013 T-shirts to raise money for
+Kids Ruby including to people going to another conference going on
+nearby.
 
 I met a lot of other cool people from all around the world: Mexico,
 Canada, Australia, Latvia, Slovenia, India and Japan. (Funny sidenote:
