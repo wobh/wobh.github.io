@@ -16,6 +16,8 @@ and he assured me that this was probably okay, at least for the
 beginning of the course. But he challenged me to spend this week
 pairing with others and letting them lead.
 
+<!-- more -->
+
 So that's what I did, with the exception of working on the mail code
 for our team project, I tried to work with others in the class. We
 worked on our Cards Against Humanity game, modeling it in the database

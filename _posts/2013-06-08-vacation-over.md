@@ -17,6 +17,8 @@ like there must be some kind of time-management trick I never quite
 learned for making the most of evenings and weekends while getting the
 necessary amount of rest.
 
+<!-- more -->
+
 What's funny is that during my break I also took a break from my side
 projects. I didn't work on anything for the last couple of weeks. Now
 that my week is occupied with my new job, I also feel like getting

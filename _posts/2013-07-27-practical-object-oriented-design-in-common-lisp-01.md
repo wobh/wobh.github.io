@@ -17,6 +17,8 @@ multiple-dispatch. The notion of "message passing" as guiding metaphor
 for OOP doesn't even work for CLOS. How would lispers apply Sandi
 Metz's advice?
 
+<!-- more -->
+
 To get familiar with CLOS I read Sonja Keene's <cite>Object Oriented
 Programming in Common Lisp</cite> (OOPCL). Keene's book is full of
 well-formed Common Lisp code, to introduce CLOS concepts and good OOP

@@ -26,6 +26,8 @@ Lounge, and sold leftover Railsconf 2013 T-shirts to raise money for
 Kids Ruby including to people going to another conference going on
 nearby.
 
+<!-- more -->
+
 I met a lot of other cool people from all around the world: Mexico,
 Canada, Australia, Latvia, Slovenia, India and Japan. (Funny sidenote:
 newcomers from all over the country and the world want to go get

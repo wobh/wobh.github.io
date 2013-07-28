@@ -27,6 +27,8 @@ game, but on the web. Our interest was to see what combinations would
 prove to be the most popular and we may yet find this out, but not
 before learning of some unsettling possibilities.
 
+<!-- more -->
+
 We ended up with other team projects, but the CAH app was popular and
 on Tuesday, we discussed using it as a class learning project,
 considering how we might create and combine cards in a purely Object
