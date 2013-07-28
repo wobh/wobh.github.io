@@ -3,19 +3,19 @@ layout: post
 title: "Practical Object Oriented Design in Common Lisp part 1"
 description: ""
 category: 
-tags: []
+tags: [ruby, common-lisp, clos]
 date: 2013-07-27 07:36:49 -0700
 ---
 {% include JB/setup %}
 
 I learned a lot when I first read Sandi Metz's <cite>Practical Object
-Oriented in Ruby</cite> (POODIR), but one of the things I have
-wondered was how much would be apply in Common Lisp's Object System
+Oriented Design in Ruby</cite> (POODIR), but one of the things I have
+wondered was how much I would be apply in Common Lisp's Object System
 (CLOS). At the time, I didn't know CLOS very well, but I knew it was
-very different from Ruby's. CLOS has multiple-inheritance and
-multiple-dispatch. The notion of "message passing" as guiding metaphor
-for OOP doesn't even work for CLOS. How would lispers apply Sandi
-Metz's advice?
+very different from Ruby's object system. CLOS has
+multiple-inheritance and multiple-dispatch. The notion of "message
+passing" as guiding metaphor for OOP doesn't even work for CLOS. How
+would lispers apply Sandi Metz's advice?
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ good OOP design principles which Metz uses to explain those principles
 and how to make them better.
 
 Lets look at one of Metz's early examples and see how we might
-implement in CLOS. Here's the Gear class from chapter 2 "Designing
+implement it in CLOS. Here's the Gear class from chapter 2 "Designing
 Classes That Have a Single Responsibility."
 
 <pre><code class="ruby">class Gear
