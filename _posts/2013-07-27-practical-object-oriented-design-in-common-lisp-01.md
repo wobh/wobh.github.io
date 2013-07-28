@@ -32,6 +32,7 @@ Classes That Have a Single Responsibility."
 
 <pre><code class="ruby">class Gear
   attr_reader :chainring, :cog
+
   def initialize(chainring, cog)
     @chainring = chainring
     @cog       = cog
@@ -50,8 +51,7 @@ Implementing it in CLOS:
    (cog       :reader cog       :initarg :cog)))
 
 (defmethod ratio ((gear gear))
-  (with-slots (chainring cog) gear
-    (/ chainring (float cog))))
+  (/ (chainring gear) (float (cog gear))))
 </code></pre>
 
 This isn't very exciting code in either language, but it's just an
@@ -62,7 +62,8 @@ things out a bit more. The instance variables (or "slots" as they are
 called in CL) are essentially all there is of the class. However, the
 DEFCLASS macro actually has it's own syntax and is automatically
 generating the reader methods for the slots as well as setting up a
-MAKE-INSTANCE method with key arguments for defining gears.
+MAKE-INSTANCE method with key arguments for defining the values of
+gear objects slots.
 
 The ratio method in CL also seems a bit more complicated than the Ruby
 ratio. You can see it's defined separately from the class. In CLOS
