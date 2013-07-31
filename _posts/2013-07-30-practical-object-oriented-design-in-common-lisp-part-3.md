@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Practical Object Oriented Design in Common Lisp Part 3"
+title: "Practical Object Oriented Design in Common Lisp part 3"
 description: ""
 category: 
 tags: []
