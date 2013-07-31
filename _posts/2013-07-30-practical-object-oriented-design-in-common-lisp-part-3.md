@@ -12,7 +12,7 @@ Hiding data structures in the next strategy Metz discusses in
 Chapter 2. Just as hiding instance variables with accessors, is a good
 idea, we'll see how hiding data structures also makes your code more
 flexible. Again we'll adapt the sample code to Common Lisp and see how
-these principles work in CLOS
+these principles work in CLOS.
 
 <!-- more -->
 
@@ -148,6 +148,10 @@ both.
   (* (ratio gear) (diameter wheel)))
 </code></pre>
 
-This section has been about isolating responsibilities in your code.
-We've now begun to use Common Lisps multiple dispatch features, but
-even so, the code has only a single responsibilities.
+This chapter has been about isolating responsibilities in your code.
+The <code>GEAR</code> and <code>WHEEL</code> classs and methods are
+pretty much down to a single responsibility. There's still more to
+learn, and in POODR chapter 3 we learn about "Managing Dependencies".
+We've already avoided one dependency, by using multiple-dispatch with
+our <code>GEAR-INCHES</code> method, but there's some other
+dependencies worth considering next.
