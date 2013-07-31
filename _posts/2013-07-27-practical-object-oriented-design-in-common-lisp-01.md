@@ -6,7 +6,7 @@ category:
 tags: [ruby, common-lisp, clos]
 date: 2013-07-27 07:36:49 -0700
 ---
-{% include JB/setup %}
+<!-- {% include JB/setup %} -->
 
 I learned a lot when I first read Sandi Metz's <cite>Practical Object
 Oriented Design in Ruby</cite> (<a

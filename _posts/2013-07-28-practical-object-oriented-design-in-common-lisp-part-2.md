@@ -6,7 +6,7 @@ category:
 tags: []
 date: 2013-07-28 00:48:31 -0700
 ---
-{% include JB/setup %}
+<!-- {% include JB/setup %} -->
 
 In <a href="http://www.poodr.info/">POODR</a> chapter 2 in the section
 called "Writing Code That Embraces Change" Metz discusses two
