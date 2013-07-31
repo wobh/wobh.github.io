@@ -8,9 +8,10 @@ date: 2013-07-28 00:48:31 -0700
 ---
 {% include JB/setup %}
 
-In POODIR chapter 2 in the section called "Writing Code That Embraces
-Change" Metz discusses two strategies: hiding instance variables and
-hiding data structures. I'm going discuss the first of these.
+In <a href="http://www.poodr.info/">POODR</a> chapter 2 in the section
+called "Writing Code That Embraces Change" Metz discusses two
+strategies: hiding instance variables and hiding data structures. I'm
+going discuss the first of these.
 
 Metz strongly recommends wrapping instance variables in accessor
 methods instead of directly referring to them.

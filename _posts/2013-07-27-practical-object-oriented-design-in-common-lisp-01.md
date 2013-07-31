@@ -9,7 +9,8 @@ date: 2013-07-27 07:36:49 -0700
 {% include JB/setup %}
 
 I learned a lot when I first read Sandi Metz's <cite>Practical Object
-Oriented Design in Ruby</cite> (POODIR), but one of the things I have
+Oriented Design in Ruby</cite> (<a
+href="http://www.poodr.info/">POODR</a>), but one of the things I have
 wondered was how much I would be apply in Common Lisp's Object System
 (CLOS). At the time, I didn't know CLOS very well, but I knew it was
 very different from Ruby's object system. CLOS has
