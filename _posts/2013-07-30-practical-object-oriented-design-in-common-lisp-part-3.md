@@ -109,7 +109,8 @@ just has to roll over the wheel objects and use the accessors.
 
 In Ruby the Struct class is more like a Common Lisp class, a basic
 structure which provides accessors. You can add other methods to it
-easily enough, and, of course you can lisp too.
+easily enough, and, of course you can lisp too. Here's what we should
+do in Common Lisp to isolate the diameter calculating functionality
 
 <pre><code class="lisp">(defmethod diameter ((wheel wheel))
   (with-accessors ((rim rim) (tire tire)) wheel
