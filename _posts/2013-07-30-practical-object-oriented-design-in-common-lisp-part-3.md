@@ -127,7 +127,7 @@ class.
 <pre><code class="lisp">(defclass wheel ()
   ((rim  :reader rim  :initarg :rim)
    (tire :reader tire :initarg :tire)))
-</code></pre>  
+</code></pre>
 
 The <code>DIAMETER</code> method stays the same as above, lets bring
 back the <code>GEAR</code> class and <code>RATIO</code> method.
