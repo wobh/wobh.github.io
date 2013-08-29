@@ -2,4 +2,5 @@ name: WOBH
 markdown: redcarpet
 pygments: true
 permalink: date
+baseurl: http://wobh.github.io/
 excerpt_separator: "<!-- more -->"
