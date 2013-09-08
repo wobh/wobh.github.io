@@ -9,8 +9,9 @@ CONFIG = {
   'themes' => File.join(SOURCE, "_includes", "themes"),
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
+  'drafts' => File.join(SOURCE, "_drafts"),
   'post_ext' => "md",
-  'theme_package_version' => "0.1.0"
+  'theme_package_version' => "0.1.0",
 }
 
 # Path configuration helper
@@ -22,7 +23,8 @@ module JB
       :themes => "_includes/themes",
       :theme_assets => "assets/themes",
       :theme_packages => "_theme_packages",
-      :posts => "_posts"
+      :posts => "_posts",
+      :drafts => "_drafts",
     }
     
     def self.base
@@ -72,6 +74,31 @@ task :post do
   end
 end # task :post
 
+# Usage: rake post title="A Title" [tags=[tag1, tag2]]
+desc "Begin a new draft in #{CONFIG['drafts']}"
+task :draft do
+  abort("rake aborted: '#{CONFIG['drafts']}' directory not found.") unless FileTest.directory?(CONFIG['drafts'])
+  title = ENV["title"] || "new-draft"
+  tags = ENV["tags"] || "[]"
+  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  filename = File.join(CONFIG['drafts'], "date-#{slug}.#{CONFIG['post_ext']}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+  
+  puts "Creating new draft: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "title: \"#{title.gsub(/-/,' ')}\""
+    post.puts 'description: ""'
+    post.puts "category: "
+    post.puts "tags: []"
+    post.puts "---"
+    post.puts "{% include JB/setup %}"
+  end
+end
+
 # Usage: rake page name="about.html"
 # You can also specify a sub-directory path.
 # If you don't specify a file extention we create an index.html at the path specified
@@ -99,8 +126,13 @@ end # task :page
 
 desc "Launch preview environment"
 task :preview do
-  system "jekyll --auto --server"
+  system "jekyll serve --watch --baseurl="
 end # task :preview
+
+desc "Launch preview with drafts environment"
+task :preview_drafts do
+  system "jekyll serve --watch --drafts --baseurl="
+end
 
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"
