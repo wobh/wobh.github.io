@@ -20,24 +20,26 @@ Lisp.
 
 First we'll need some functions to support creating slot definition lists.
 
-    (defun defslot-accessible (accessor-type slot-name)
-      "Make a slot definition from a slot-name and accessor-type keyword."
-      (if (keywordp slot-name)
-          (let ((slot (intern (symbol-name slot-name))))
-            (list slot accessor-type slot :initarg slot-name))
-          (list slot-name accessor-type slot-name)))
-    
-    (defun defslots-accessible (accessor-type &rest slot-names)
-      "Takes a list of keywords and outputs slot definition lines"
-      (loop
-         for slot-name in slot-names
-         collect (defslot-accessible accessor-type slot-name)))
-    
-    (defun get-accessor-keyword (attr)
-      (ecase attr
-        (attr-accessor :accessor)
-        (attr-reader   :reader)
-        (attr-writer   :writer)))
+{% highlight common-lisp %}
+(defun defslot-accessible (accessor-type slot-name)
+  "Make a slot definition from a slot-name and accessor-type keyword."
+  (if (keywordp slot-name)
+      (let ((slot (intern (symbol-name slot-name))))
+        (list slot accessor-type slot :initarg slot-name))
+      (list slot-name accessor-type slot-name)))
+
+(defun defslots-accessible (accessor-type &rest slot-names)
+  "Takes a list of keywords and outputs slot definition lines"
+  (loop
+     for slot-name in slot-names
+     collect (defslot-accessible accessor-type slot-name)))
+
+(defun get-accessor-keyword (attr)
+  (ecase attr
+    (attr-accessor :accessor)
+    (attr-reader   :reader)
+    (attr-writer   :writer)))
+{% endhighlight %}
 
 A couple of notes. 
 
@@ -55,49 +57,53 @@ it's a regular CLOS slot definition.
 Now we can build a macro that builds a `DEFCLASS` form from
 Ruby-like attr-accessor expressions.
 
-    (defmacro defclass-rubyish (name superclasses
-                                &optional slots &rest options)
-      `(defclass ,name ,superclasses
-         ,(loop
-             for indirect-slot in slots
-             append (handler-case 
-                        (apply 'defslots-accessible
-                               (get-accessor-keyword (first indirect-slot))
-                               (rest indirect-slot))
-                      (type-error () (list indirect-slot))))
-         ,@options))
+{% highlight common-lisp %}
+(defmacro defclass-rubyish (name superclasses
+                            &optional slots &rest options)
+  `(defclass ,name ,superclasses
+     ,(loop
+         for indirect-slot in slots
+         append (handler-case 
+                    (apply 'defslots-accessible
+                           (get-accessor-keyword (first indirect-slot))
+                           (rest indirect-slot))
+                  (type-error () (list indirect-slot))))
+     ,@options))
+{% endhighlight %}
 
 We have just extended Common Lisp. There's probably a more elegant
 way, but for now, let's just see it in action:
 
-    CL-USER> (pprint
-              (macroexpand-1
-               '(defclass-rubyish rbcl ()
-                 ((attr-reader :foo bar)
-                  (attr-accessor baz :qux)
-                  (blerg :writer :blerg :type 'string)
-                  (pwomp :writer :pwomp :documentation "pwomp!"))
-                 (:default-initargs
-                  :foo 0
-                  :qux 1))))
-    (DEFCLASS RBCL ()
-      ((FOO :READER FOO :INITARG :FOO) 
-       (BAR :READER BAR) 
-       (BAZ :ACCESSOR BAZ)
-       (QUX :ACCESSOR QUX :INITARG :QUX) 
-       (BLERG :WRITER :BLERG :TYPE 'STRING)
-       (PWOMP :WRITER :PWOMP :DOCUMENTATION "pwomp!"))
-      ((:DEFAULT-INITARGS :FOO 0 :QUX 1)))
-    
-    CL-USER> (defclass-rubyish rbcl ()
-               ((attr-reader :foo bar)
-                (attr-accessor baz :qux)
-                (blerg :writer :blerg :type 'string)
-                (pwomp :writer :pwomp :documentation "pwomp!"))
-               (:default-initargs
-                :foo 0
-                :qux 1))
-    #<STANDARD-CLASS RBCL>
+{% highlight common-lisp %}
+CL-USER> (pprint
+          (macroexpand-1
+           '(defclass-rubyish rbcl ()
+             ((attr-reader :foo bar)
+              (attr-accessor baz :qux)
+              (blerg :writer :blerg :type 'string)
+              (pwomp :writer :pwomp :documentation "pwomp!"))
+             (:default-initargs
+              :foo 0
+              :qux 1))))
+(DEFCLASS RBCL ()
+  ((FOO :READER FOO :INITARG :FOO) 
+   (BAR :READER BAR) 
+   (BAZ :ACCESSOR BAZ)
+   (QUX :ACCESSOR QUX :INITARG :QUX) 
+   (BLERG :WRITER :BLERG :TYPE 'STRING)
+   (PWOMP :WRITER :PWOMP :DOCUMENTATION "pwomp!"))
+  ((:DEFAULT-INITARGS :FOO 0 :QUX 1)))
+
+CL-USER> (defclass-rubyish rbcl ()
+           ((attr-reader :foo bar)
+            (attr-accessor baz :qux)
+            (blerg :writer :blerg :type 'string)
+            (pwomp :writer :pwomp :documentation "pwomp!"))
+           (:default-initargs
+            :foo 0
+            :qux 1))
+#<STANDARD-CLASS RBCL>
+{% endhighlight %}
 
 The macro takes our Rubyish syntax and expands into a CLOS class
 definition. I'm not going to explain how the macro code-building works

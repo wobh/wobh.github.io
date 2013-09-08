@@ -19,7 +19,8 @@ these principles work in CLOS.
 Here is one of Metz's examples, a class whose objects must be
 initialized with an array of two member arrays.
 
-<pre><code class="ruby">class ObscuringReferences
+{% highlight ruby %}
+class ObscuringReferences
   attr_reader :data
 
   def initialize(data)
@@ -32,14 +33,15 @@ initialized with an array of two member arrays.
       cell[0] + (cell[1] * 2)}
   end
 end
-</code></pre>
+{% endhighlight %}
 
 Here the diameters methods must know about the array's structure as it
 loops over it.
 
 Here's a quick pass at implementing it in Common Lisp.
 
-<pre><code class="lisp">(defclass obscuring-references ()
+{% highlight common-lisp %}
+(defclass obscuring-references ()
  (data :reader data :initarg data))
   
 (defmethod diameters ((o-ref obscuring-references))
@@ -47,7 +49,7 @@ Here's a quick pass at implementing it in Common Lisp.
                (destructuring-bind (rim tire) wheel
                  (+ rim (* tire 2))))
        (data o-ref)))
-</code></pre>
+{% endhighlight %}
 
 This may not seem so bad at first, since
 <code>DESTRUCTURING-BIND</code> allows us to create structural
@@ -60,7 +62,8 @@ set up objects that be more flexibly adapted.
 Metz suggests thinking about how to take structure and give it labels,
 and interface that can be used, while hiding the structure, like this:
 
-<pre><code class="ruby">class RevealingReferences
+{% highlight ruby %}
+class RevealingReferences
   attr_reader :wheels
 
   def initialize(data)
@@ -78,11 +81,12 @@ and interface that can be used, while hiding the structure, like this:
       Wheel.new(cell[0], cell[1])}
   end
 end
-</code></pre>
+{% endhighlight %}
 
 In Common Lisp we might do it like this:
 
-<pre><code class="lisp">(defclass revealing-references ()
+{% highlight common-lisp %}
+(defclass revealing-references ()
   ((wheels :reader wheels :initarg :wheels)))
   
 (defstruct (wheel (:conc-name Nil)) rim tire)
@@ -99,7 +103,7 @@ In Common Lisp we might do it like this:
                (with-accessors ((rim rim) (tire tire)) wheel
                  (+ rim (* tire 2))))
        (wheels o-ref)))
-</code></pre>
+{% endhighlight %}
 
 We're still using <code>DESTRUCTURING-BIND</code> but now it's in the
 specialized <code>INITIALIZE-INSTANCE :AFTER</code> method. This will
@@ -112,42 +116,46 @@ structure which provides accessors. You can add other methods to it
 easily enough, and, of course you can lisp too. Here's what we should
 do in Common Lisp to isolate the diameter calculating functionality
 
-<pre><code class="lisp">(defmethod diameter ((wheel wheel))
+{% highlight common-lisp %}
+(defmethod diameter ((wheel wheel))
   (with-accessors ((rim rim) (tire tire)) wheel
     (+ rim (* tire 2))))
   
 (defmethod diameters ((o-ref revealing-references))
   (map 'list 'diameter (wheels o-ref)))
-</code></pre>
+{% endhighlight %}
 
 Common Lisp structs are optimized but if you want turn the wheel into
 a class, now you can. The interface is stable. Lets look at the wheel
 class.
 
-<pre><code class="lisp">(defclass wheel ()
+{% highlight common-lisp %}
+(defclass wheel ()
   ((rim  :reader rim  :initarg :rim)
    (tire :reader tire :initarg :tire)))
-</code></pre>
+{% endhighlight %}
 
 The <code>DIAMETER</code> method stays the same as above, lets bring
 back the <code>GEAR</code> class and <code>RATIO</code> method.
 
-<pre><code class="lisp">(defclass gear ()
+{% highlight common-lisp %}
+(defclass gear ()
   ((cog       :reader cog       :initarg :cog)
    (chainring :reader chainring :initarg :chainring)))
 
 (defmethod ratio ((gear gear))
   (with-accessors ((cog cog) (chainring chainring)) gear
     (/ chainring (float cog))))
-</code></pre>
+{% endhighlight %}
 
 In Common Lisp we don't have to figure out whether a gear should
 belong to a wheel or a wheel have a gear. We can write a method for
 both.
 
-<pre><code class="lisp">(defmethod gear-inches ((wheel wheel) (gear gear))
+{% highlight common-lisp %}
+(defmethod gear-inches ((wheel wheel) (gear gear))
   (* (ratio gear) (diameter wheel)))
-</code></pre>
+{% endhighlight %}
 
 This chapter has been about isolating responsibilities in your code.
 The <code>GEAR</code> and <code>WHEEL</code> classs and methods are

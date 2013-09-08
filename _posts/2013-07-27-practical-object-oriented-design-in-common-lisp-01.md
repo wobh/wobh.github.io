@@ -31,7 +31,8 @@ Lets look at one of Metz's early examples and see how we might
 implement it in CLOS. Here's the Gear class from chapter 2 "Designing
 Classes That Have a Single Responsibility."
 
-<pre><code class="ruby">class Gear
+{% highlight ruby %}
+class Gear
   attr_reader :chainring, :cog
 
   def initialize(chainring, cog)
@@ -43,17 +44,18 @@ Classes That Have a Single Responsibility."
     chainring / cog.to_f
   end
 end
-</code></pre>
+{% endhighlight %}
 
 Implementing it in CLOS:
 
-<pre><code class="lisp">(defclass gear ()
+{% highlight common-lisp %}
+(defclass gear ()
   ((chainring :reader chainring :initarg :chainring)
    (cog       :reader cog       :initarg :cog)))
 
 (defmethod ratio ((gear gear))
   (/ (chainring gear) (float (cog gear))))
-</code></pre>
+{% endhighlight %}
 
 This isn't very exciting code in either language, but it's just an
 example. A few things to note, in Ruby we have some syntax to define
@@ -78,19 +80,21 @@ Let's see them in action:
 
 In Ruby:
 
-<pre><code class="ruby">> g = Gear.new(52, 11)
-=> #&lt;Gear:0x2a23520 @chainring=52, @cog=11&gt;
+{% highlight ruby %}
+>> g = Gear.new(52, 11)
+=> #<Gear:0x2a23520 @chainring=52, @cog=11>
 > g.ratio
 => 4.7272727272727275
-</code></pre>
+{% endhighlight %}
 
 In Common Lisp:
 
-<pre><code class="lisp">> (setf g (make-instance 'gear :chainring 52 :cog 11))
-#&lt;GEAR #x2100B0135D&gt;
+{% highlight common-lisp %}
+(setf g (make-instance 'gear :chainring 52 :cog 11))
+#<GEAR #x2100B0135D>
 > (ratio g)
 4.7272725
-</code></pre>
+{% endhighlight %}
 
 Over the course of chapter 2 Metz transforms the initial code,
 demonstrating by principles of OOP design how to make it work with a
