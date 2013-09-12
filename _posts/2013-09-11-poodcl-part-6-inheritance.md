@@ -19,7 +19,7 @@ designing inheritable classes starting with a concrete `Bicycle`
 class. It begins as a class of road bikes and progressively gets
 abstracted to provide an abstract class for road, mountain, and
 recumbent bikes. I've translated the examples into Common Lisp and
-discussed how to refactor it.
+discussed how to refactor them.
 
 <!-- more -->
 
@@ -51,7 +51,7 @@ CL-USER> (let ((bike (make-instance 'bicycle :tape-color "red" :size "M")))
            (values
             (size bike)
             (spares bike)))
-M
+"M"
 (:CHAIN "10-speed" :TIRE-SIZE "23" :TAPE-COLOR "red")
 {% endhighlight %}
 
@@ -181,9 +181,9 @@ CL-USER> (let ((rb (make-instance 'road-bike :size "M" :tape-color "red"))
             (spares rb)
             (size mb)
             (spares mb)))
-M
+"M"
 (:CHAIN "10-speed" :TIRE-SIZE "23" :TAPE-COLOR "red")
-S
+"S"
 (:CHAIN "10-speed" :TIRE-SIZE "2.1" :REAR-SHOCK "Fox")
 {% endhighlight %}
 
