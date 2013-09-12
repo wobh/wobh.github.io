@@ -14,16 +14,18 @@ superclasses plus whatever other properties we define for
 them. Subclasses are specialized, more concrete versions of their more
 general, more abstract superclasses.
 
-In [the code for POODR chapter 6](https://github.com/skmetz/poodr/blob/master/chapter_6.rb), Metz approaches strategies for
-designing inheritable classes starting with a concrete `Bicycle`
-class. It begins as a class of road bikes and progressively gets
-abstracted to provide an abstract class for road, mountain, and
-recumbent bikes. I've translated the examples into Common Lisp and
-discussed how to refactor them.
+In
+[the code for POODR chapter 6](https://github.com/skmetz/poodr/blob/master/chapter_6.rb),
+Metz approaches strategies for designing inheritable classes starting
+with a concrete `Bicycle` class. It begins as a class of road bikes
+and progressively gets abstracted to provide an abstract class for
+road, mountain, and recumbent bikes. I've translated the examples into
+Common Lisp and discussed how to refactor them.
 
 <!-- more -->
 
-Here is a `BICYCLE` class based on the Ruby version from [page 107](https://github.com/skmetz/poodr/blob/master/chapter_6.rb#L1).
+Here is a `BICYCLE` class based on the Ruby version from
+[page 107](https://github.com/skmetz/poodr/blob/master/chapter_6.rb#L1).
 
 {% highlight common-lisp %}
 (defclass bicycle ()
@@ -86,20 +88,20 @@ We shouldn't mock this code. The constraints of the professional world
 are sometimes cruel, so I'm sure there are many professionals who knew
 better, but have done worse. I've added slots for mountain bike parts
 and a style option to select on appropriate settings for the the
-`SPARES` slot. 
+`SPARES` slot.
 
 However, the specifications recognize two kinds of bicycle with
 disjoint properties. `TAPE-COLOR` is just as irrelevant to the
 `MOUNTAIN` style as `FRONT-SHOCK` and `REAR-SHOCK` are to `ROAD`
 style, but every object will have those slots regardless. `STYLE` is
-only useful for deciding what `SPARES` will be. 
+only useful for deciding what `SPARES` will be.
 
 It works.
 
 {% highlight common-lisp %}
-CL-USER> (let ((bike (make-instance 'bicycle 
-                                    :style 'mountain 
-                                    :size "S" 
+CL-USER> (let ((bike (make-instance 'bicycle
+                                    :style 'mountain
+                                    :size "S"
                                     :front-shock "Manitou"
                                     :rear-shock "Fox")))
             (spares bike))
@@ -204,7 +206,7 @@ Several complications arise. We're going to want to setup `SPARES`
 with the appropriate values for the subclass of bikes. It would also
 be nice to setup default values for the new slots too. Some defaults
 are appropriate for all bike types, but some are appropriate to the
-subclasses. 
+subclasses.
 
 We have options. One is to setup our classes like this:
 
@@ -233,12 +235,14 @@ We have options. One is to setup our classes like this:
    (rear-shock  :reader rear-shock  :initarg :rear-shock)))
 {% endhighlight %}
 
-This roughly corresponds to the code on [page 126](https://github.com/skmetz/poodr/blob/master/chapter_6.rb#L298). The `:INITFORM` key
-gives a default value to the slot when an instance is initialized.
-This kind of setup seems solid, but it leads to a couple of problems.
-The first of which comes when Metz introduces a new bike subclass,
-this one with a different default chain. This seems easy enough to get
-around, by overiding the chain slot setup in the new class.
+This roughly corresponds to the code on
+[page 126](https://github.com/skmetz/poodr/blob/master/chapter_6.rb#L298).
+The `:INITFORM` key gives a default value to the slot when an instance
+is initialized. This kind of setup seems solid, but it leads to a
+couple of problems. The first of which comes when Metz introduces a
+new bike subclass, this one with a different default chain. This seems
+easy enough to get around, by overiding the chain slot setup in the
+new class.
 
 {% highlight common-lisp %}
 (defclass recumbent-bike (bicycle)
@@ -253,12 +257,14 @@ the Ruby `Bicycle` class method `default_tire_size` raise a
 `NotImplemented` error in this circumstance to alert future developers
 adding classes and accessing new objects. Our Lisp implementation is
 already going to raise an `UNBOUND-SLOT` error if one proceeds with
-calling `TIRE-SIZE` on new `RECUMBENT-BIKE` objects. 
+calling `TIRE-SIZE` on new `RECUMBENT-BIKE` objects.
 
 There can be other issues, particular to Common Lisp, with using
-`:INITFORM` key values like this. These are discussed [Chris Reisbeck's
-notes on Graham's <span class="underline">ANSI Common Lisp</span> chapter 11](http://www.cs.northwestern.edu/academics/courses/325/readings/graham/chap11-notes.php) but also at [this Lisp
-tips post](http://lisptips.com/post/11728375873/initform-and-default-initargs). The recommended way of dealing with these is with the
+`:INITFORM` key values like this. These are discussed
+[Chris Reisbeck's notes on Graham's <span class="underline">ANSI Common Lisp</span> chapter 11](http://www.cs.northwestern.edu/academics/courses/325/readings/graham/chap11-notes.php)
+but also at
+[this Lisp tips post](http://lisptips.com/post/11728375873/initform-and-default-initargs).
+The recommended way of dealing with these is with the
 `:DEFAULT-INITARGS` which results in cleaner code overall. While we're
 at it, we'll implement `RECUMBENT-BIKE` more completely.
 
@@ -300,7 +306,7 @@ very particular one.
 
 We should now rexamine how the `SPARES` slots of `BICYCLE` objects are
 initialized. We've been populating the `SPARES` slot with a
-pregenerated property list. It's time to take that apart a bit. 
+pregenerated property list. It's time to take that apart a bit.
 
 {% highlight common-lisp %}
 (defmethod initialize-instance :after ((b bicycle) &key)
