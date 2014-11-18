@@ -29,7 +29,7 @@ is comprised of the parts of our bicycle.
 
 {% highlight common-lisp %}
 
-(defclass bicycle ()\
+(defclass bicycle ()
   ((size :reader size :initarg :size)
    (parts :reader parts :initarg :parts)))
 
