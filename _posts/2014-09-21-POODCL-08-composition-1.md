@@ -29,12 +29,12 @@ is comprised of the parts of our bicycle.
 
 {% highlight common-lisp %}
 
-    (defclass bicycle ()
-      ((size :reader size :initarg :size)
-       (parts :reader parts :initarg :parts)))
+(defclass bicycle ()\
+  ((size :reader size :initarg :size)
+   (parts :reader parts :initarg :parts)))
 
-    (defmethod spares ((bicycle bicycle))
-      (spares (parts bicycle)))
+(defmethod spares ((bicycle bicycle))
+  (spares (parts bicycle)))
 
 {% endhighlight %}
 
@@ -49,38 +49,38 @@ implementations of `BICYCLE` classes from part 6.
 
 {% highlight common-lisp %}
 
-    (defclass parts ()
-      ((chain :reader chain :initarg :chain)
-       (tire-size :reader tire-size :initarg :tire-size)
-       (spares :reader spares))
-      (:default-initargs
-       :chain "10-speed"))
+(defclass parts ()
+  ((chain :reader chain :initarg :chain)
+   (tire-size :reader tire-size :initarg :tire-size)
+   (spares :reader spares))
+  (:default-initargs
+   :chain "10-speed"))
 
-    (defmethod initialize-instance :after ((parts parts) &key)
-      (with-slots (spares tire-size chain) parts
-        (setf spares
-              (list
-               :chain chain
-               :tire-size tire-size))))
+(defmethod initialize-instance :after ((parts parts) &key)
+  (with-slots (spares tire-size chain) parts
+    (setf spares
+          (list
+           :chain chain
+           :tire-size tire-size))))
 
-    (defclass road-bike-parts (parts)
-      ((tape-color :reader tape-color :initarg :tape-color))
-      (:default-initargs
-       :tire-size "23 millimeters"))
+(defclass road-bike-parts (parts)
+  ((tape-color :reader tape-color :initarg :tape-color))
+  (:default-initargs
+   :tire-size "23 millimeters"))
 
-    (defmethod initialize-instance :after ((rbp road-bike-parts) &key)
-      (with-slots (spares tape-color) rbp
-        (setf (getf spares :tape-color) tape-color)))
+(defmethod initialize-instance :after ((rbp road-bike-parts) &key)
+  (with-slots (spares tape-color) rbp
+    (setf (getf spares :tape-color) tape-color)))
 
-    (defclass mountain-bike-parts (parts)
-      ((front-shock :reader front-shock :initarg :front-shock)
-       (rear-shock  :reader rear-shock  :initarg :rear-shock))
-      (:default-initargs
-       :tire-size "2.1 inches"))
+(defclass mountain-bike-parts (parts)
+  ((front-shock :reader front-shock :initarg :front-shock)
+   (rear-shock  :reader rear-shock  :initarg :rear-shock))
+  (:default-initargs
+   :tire-size "2.1 inches"))
 
-    (defmethod initialize-instance :after ((mbp mountain-bike-parts) &key)
-      (with-slots (spares rear-shock) mbp
-        (setf (getf spares :rear-shock) rear-shock)))
+(defmethod initialize-instance :after ((mbp mountain-bike-parts) &key)
+  (with-slots (spares rear-shock) mbp
+    (setf (getf spares :rear-shock) rear-shock)))
 
 {% endhighlight %}
 
@@ -89,18 +89,18 @@ in part 6.
 
 {% highlight common-lisp %}
 
-    CL-USER> (let ((rb (make-instance 'bicycle :size "L"
-                                      :parts (make-instance 'road-bike-parts
-                                                            :tape-color "red"))))
-               (values (size rb) (spares rb)))
-    "L"
-    (:TAPE-COLOR "red" :CHAIN "10-speed" :TIRE-SIZE "23 millimeters")
-    CL-USER> (let ((mb (make-instance 'bicycle :size "L"
-                                      :parts (make-instance 'mountain-bike-parts
-                                                            :rear-shock "Fox"))))
-               (values (size mb) (spares mb)))
-    "L"
-    (:REAR-SHOCK "Fox" :CHAIN "10-speed" :TIRE-SIZE "2.1 inches")
+CL-USER> (let ((rb (make-instance 'bicycle :size "L"
+                                  :parts (make-instance 'road-bike-parts
+                                                        :tape-color "red"))))
+           (values (size rb) (spares rb)))
+"L"
+(:TAPE-COLOR "red" :CHAIN "10-speed" :TIRE-SIZE "23 millimeters")
+CL-USER> (let ((mb (make-instance 'bicycle :size "L"
+                                  :parts (make-instance 'mountain-bike-parts
+                                                        :rear-shock "Fox"))))
+           (values (size mb) (spares mb)))
+"L"
+(:REAR-SHOCK "Fox" :CHAIN "10-speed" :TIRE-SIZE "2.1 inches")
 
 {% endhighlight %}
 
@@ -118,24 +118,24 @@ and a `PRINT-OBJECT` method for it for these examples.
 
 {% highlight common-lisp %}
 
-    (defclass parts ()
-      ((parts :reader parts :initarg :parts)))
+(defclass parts ()
+  ((parts :reader parts :initarg :parts)))
 
-    (defmethod spares ((parts parts))
-      (remove-if-not #'needs-spare (parts parts)))
+(defmethod spares ((parts parts))
+  (remove-if-not #'needs-spare (parts parts)))
 
-    (defclass part ()
-      ((name :reader name :initarg :name)
-       (description :reader description :initarg :description)
-       (needs-spare :reader needs-spare :initarg :needs-spare))
-      (:default-initargs
-       :needs-spare t))
+(defclass part ()
+  ((name :reader name :initarg :name)
+   (description :reader description :initarg :description)
+   (needs-spare :reader needs-spare :initarg :needs-spare))
+  (:default-initargs
+   :needs-spare t))
 
-    (defmethod print-object ((part part) stream)
-      (print-unreadable-object (part stream :type t)
-        (with-slots (name description needs-spare) part
-          (format stream ":name ~A :description ~A :needs-spare ~A"
-                         name description needs-spare))))
+(defmethod print-object ((part part) stream)
+  (print-unreadable-object (part stream :type t)
+    (with-slots (name description needs-spare) part
+      (format stream ":name ~A :description ~A :needs-spare ~A"
+                     name description needs-spare))))
 
 {% endhighlight %}
 
@@ -146,43 +146,43 @@ different ways.
 
 {% highlight common-lisp %}
 
-    CL-USER>(let* ((chain         (make-instance 'part :name  "chain"
-                                                 :description "10-speed"))
-                   (road-tire     (make-instance 'part :name  "tire-size"
-                                                 :description "23 millimeters"))
-                   (tape          (make-instance 'part :name  "tape-color"
-                                                 :description "red"))
-                   (mountain-tire (make-instance 'part :name  "tire-size"
-                                                 :description "2.1 inches"))
-                   (rear-shock    (make-instance 'part :name  "rear-shock"
-                                                 :description "Fox"))
-                   (front-shock   (make-instance 'part :name  "front-shock"
-                                                 :description "Manitou"
-                                                 :needs-spare nil))
-                   (road-bike-parts (make-instance 'parts
-                                                   :parts (list chain
-                                                                road-tire
-                                                                tape)))
-                   (road-bike     (make-instance
-                                   'bicycle :size "L" :parts road-bike-parts))
-                   (mountain-bike (make-instance
-                                   'bicycle :size "L"
-                                   :parts
-                                   (make-instance 'parts
-                                                  :parts (list chain
-                                                               mountain-tire
-                                                               front-shock
-                                                               rear-shock)))))
-              (values (size road-bike) (spares road-bike)
-                      (size mountain-bike) (spares mountain-bike)))
-    "L"
-    (#<PART :name chain :description 10-speed :needs-spare T>
-     #<PART :name tire-size :description 23 millimeters :needs-spare T>
-     #<PART :name tape-color :description red :needs-spare T>)
-    "L"
-    (#<PART :name chain :description 10-speed :needs-spare T>
-     #<PART :name tire-size :description 2.1 inches :needs-spare T>
-     #<PART :name rear-shock :description Fox :needs-spare T>)
+CL-USER>(let* ((chain         (make-instance 'part :name  "chain"
+                                             :description "10-speed"))
+               (road-tire     (make-instance 'part :name  "tire-size"
+                                             :description "23 millimeters"))
+               (tape          (make-instance 'part :name  "tape-color"
+                                             :description "red"))
+               (mountain-tire (make-instance 'part :name  "tire-size"
+                                             :description "2.1 inches"))
+               (rear-shock    (make-instance 'part :name  "rear-shock"
+                                             :description "Fox"))
+               (front-shock   (make-instance 'part :name  "front-shock"
+                                             :description "Manitou"
+                                             :needs-spare nil))
+               (road-bike-parts (make-instance 'parts
+                                               :parts (list chain
+                                                            road-tire
+                                                            tape)))
+               (road-bike     (make-instance
+                               'bicycle :size "L" :parts road-bike-parts))
+               (mountain-bike (make-instance
+                               'bicycle :size "L"
+                               :parts
+                               (make-instance 'parts
+                                              :parts (list chain
+                                                           mountain-tire
+                                                           front-shock
+                                                           rear-shock)))))
+          (values (size road-bike) (spares road-bike)
+                  (size mountain-bike) (spares mountain-bike)))
+"L"
+(#<PART :name chain :description 10-speed :needs-spare T>
+ #<PART :name tire-size :description 23 millimeters :needs-spare T>
+ #<PART :name tape-color :description red :needs-spare T>)
+"L"
+(#<PART :name chain :description 10-speed :needs-spare T>
+ #<PART :name tire-size :description 2.1 inches :needs-spare T>
+ #<PART :name rear-shock :description Fox :needs-spare T>)
 
 {% endhighlight %}
 
@@ -209,11 +209,11 @@ many uses, is simply something like these:
 
 {% highlight common-lisp %}
 
-    (defmethod list-of ((parts parts))
-      (coerce (parts parts) 'list))
+(defmethod list-of ((parts parts))
+  (coerce (parts parts) 'list))
 
-    (defmethod list-of ((bike bicycle))
-      (list-of (parts bike)))
+(defmethod list-of ((bike bicycle))
+  (list-of (parts bike)))
 
 {% endhighlight %}
 
@@ -243,18 +243,18 @@ templates for the factory.
 
 {% highlight common-lisp %}
 
-    (defparameter *road-config*
-      (list
-       :chain "10-speed"
-       :tire-size "23 millimeters"
-       :tape-color "red"))
+(defparameter *road-config*
+  (list
+   :chain "10-speed"
+   :tire-size "23 millimeters"
+   :tape-color "red"))
 
-    (defparameter *mountain-config*
-      (list
-       :chain "10-speed"
-       :tire-size "2.1 inches"
-       :front-shock "Manitou"
-       :rear-shock "Fox"))
+(defparameter *mountain-config*
+  (list
+   :chain "10-speed"
+   :tire-size "2.1 inches"
+   :front-shock "Manitou"
+   :rear-shock "Fox"))
 
 {% endhighlight %}
 
@@ -263,20 +263,20 @@ expect to use them with a bike parts factory like this:
 
 {% highlight common-lisp %}
 
-    (defun (parts-factory parts-config
-                          &key
-                          (parts-class parts)
-                          (part-class part))
-      (make-instance
-       parts-class
-       :parts (loop
-                 for part-config in parts-config
-                 collect
-                   (make-instance
-                    part-class
-                    :name        (getf :name part-config)
-                    :description (getf :description part-config)
-                    :needs_spare (getf :needs-spare part-config)))))
+(defun (parts-factory parts-config
+                      &key
+                      (parts-class parts)
+                      (part-class part))
+  (make-instance
+   parts-class
+   :parts (loop
+             for part-config in parts-config
+             collect
+               (make-instance
+                part-class
+                :name        (getf :name part-config)
+                :description (getf :description part-config)
+                :needs_spare (getf :needs-spare part-config)))))
 
 {% endhighlight %}
 
@@ -291,33 +291,33 @@ how we might design a bike object with many mixin part classes:
 
 {% highlight common-lisp %}
 
-    (defmacro defbikepart (part-name slot-name doc-string)
-      `(prog1
-           (defclass ,part-name ()
-             ((,slot-name :reader ,slot-name
-                          :initarg ,(intern (symbol-name slot-name) "KEYWORD")
-                          :documentation ,doc-string)))
-         (defun ,(intern (concatenate 'string "MAKE-" (symbol-name part-name)))
-             (slot-value)
-           (make-instance (quote ,part-name)
-                          ,(intern (symbol-name slot-name) "KEYWORD")
-                          slot-value))))
+(defmacro defbikepart (part-name slot-name doc-string)
+  `(prog1
+       (defclass ,part-name ()
+         ((,slot-name :reader ,slot-name
+                      :initarg ,(intern (symbol-name slot-name) "KEYWORD")
+                      :documentation ,doc-string)))
+     (defun ,(intern (concatenate 'string "MAKE-" (symbol-name part-name)))
+         (slot-value)
+       (make-instance (quote ,part-name)
+                      ,(intern (symbol-name slot-name) "KEYWORD")
+                      slot-value))))
 
-    (defbikepart bike-chain chain "a bike chain")
+(defbikepart bike-chain chain "a bike chain")
 
-    ;; many other part classes defined this way
+;; many other part classes defined this way
 
-    (defclass bike (bike-frame
-                    bike-handlebar
-                    bike-seat
-                    bike-fork
-                    bike-tire-rear
-                    bike-tire-front
-                    bike-gear
-                    bike-pedal
-                    bike-chain)
-      ((spares :accessor spares :initarg :spares
-               :documentation "Spare parts")))
+(defclass bike (bike-frame
+                bike-handlebar
+                bike-seat
+                bike-fork
+                bike-tire-rear
+                bike-tire-front
+                bike-gear
+                bike-pedal
+                bike-chain)
+  ((spares :accessor spares :initarg :spares
+           :documentation "Spare parts")))
 
 {% endhighlight %}
 
@@ -336,62 +336,62 @@ compose the `BICYCLE` class with a collection of parts:
 
 {% highlight common-lisp %}
 
-    (defclass bicycle ()
-      ((size :reader size :initarg :size)
-       (parts :reader parts :initarg :parts)))
+(defclass bicycle ()
+  ((size :reader size :initarg :size)
+   (parts :reader parts :initarg :parts)))
 
-    (defmethod spares ((bicycle bicycle))
-      (spares (parts bicycle)))
+(defmethod spares ((bicycle bicycle))
+  (spares (parts bicycle)))
 
-    (defclass parts ()
-      ((parts :reader parts :initarg :parts)))
+(defclass parts ()
+  ((parts :reader parts :initarg :parts)))
 
-    (defmethod spares ((parts parts))
-      (remove-if-not #'needs-spare (parts parts)))
+(defmethod spares ((parts parts))
+  (remove-if-not #'needs-spare (parts parts)))
 
-    (defclass list-of ((parts parts))
-      (coerce (parts parts) 'list))
+(defclass list-of ((parts parts))
+  (coerce (parts parts) 'list))
 
-    (defclass part ()
-      ((name :reader name :initarg :name)
-       (description :reader description :initarg :description)
-       (needs-spare :reader needs-spare :initarg :needs-spare))
-      (:default-initargs
-       :needs-spare t))
+(defclass part ()
+  ((name :reader name :initarg :name)
+   (description :reader description :initarg :description)
+   (needs-spare :reader needs-spare :initarg :needs-spare))
+  (:default-initargs
+   :needs-spare t))
 
-    (defmethod print-object ((part part) stream)
-      (print-unreadable-object (part stream :type t)
-        (with-slots (name description needs-spare) part
-          (format stream ":name ~A :description ~A :needs-spare ~A"
-                         name description needs-spare))))
+(defmethod print-object ((part part) stream)
+  (print-unreadable-object (part stream :type t)
+    (with-slots (name description needs-spare) part
+      (format stream ":name ~A :description ~A :needs-spare ~A"
+                     name description needs-spare))))
 
-    (defun (parts-factory parts-config
-                          &key
-                          (parts-class parts)
-                          (part-class part))
-        (make-instance
-         parts-class
-         :parts (loop
-                   for part-config in parts-config
-                   collect
-                     (make-instance
-                      part-class
-                      :name        (getf :name part-config)
-                      :description (getf :description part-config)
-                      :needs_spare (getf :needs-spare part-config)))))
+(defun (parts-factory parts-config
+                      &key
+                      (parts-class parts)
+                      (part-class part))
+    (make-instance
+     parts-class
+     :parts (loop
+               for part-config in parts-config
+               collect
+                 (make-instance
+                  part-class
+                  :name        (getf :name part-config)
+                  :description (getf :description part-config)
+                  :needs_spare (getf :needs-spare part-config)))))
 
-    (defparameter *road-config*
-      (list
-       :chain "10-speed"
-       :tire-size "23 millimeters"
-       :tape-color "red"))
+(defparameter *road-config*
+  (list
+   :chain "10-speed"
+   :tire-size "23 millimeters"
+   :tape-color "red"))
 
-    (defparameter *mountain-config*
-      (list
-       :chain "10-speed"
-       :tire-size "2.1 inches"
-       :front-shock "Manitou"
-       :rear-shock "Fox"))
+(defparameter *mountain-config*
+  (list
+   :chain "10-speed"
+   :tire-size "2.1 inches"
+   :front-shock "Manitou"
+   :rear-shock "Fox"))
 
 {% endhighlight %}
 
