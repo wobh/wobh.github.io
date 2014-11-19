@@ -299,3 +299,7 @@ problem, or if they are fancy way of calling `super` in Ruby. But with
 the method combining powers of CLOS, they at least allow us to have
 the effect of inheritable, extensible template methods.
 
+<a
+href="{{ site.baseurl }}2014/09/21/POODCL-08-composition-1.html">next</a><br/>
+<a
+href="{{ site.baseurl }}2013/09/11/poodcl-part-6-inheritance.html">prev</a>

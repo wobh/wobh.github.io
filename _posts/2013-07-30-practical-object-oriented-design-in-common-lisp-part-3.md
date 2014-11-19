@@ -164,3 +164,8 @@ learn, and in POODR chapter 3 we learn about "Managing Dependencies".
 We've already avoided one dependency, by using multiple-dispatch with
 our <code>GEAR-INCHES</code> method, but there's some other
 dependencies worth considering next.
+
+<a href="{{ site.baseurl
+}}2013/08/28/POODCL-04-cl-macros-and-rubyish-clos.html">next/a><br/>
+<a href="{{ site.baseurl
+}}2013/07/28/practical-object-oriented-design-in-common-lisp-part-2.html">prev</a>

@@ -175,3 +175,8 @@ couldn't easily do in single-inheritance single dispatch object
 system, and makes the system even more flexible.
 
 Next, hiding data structures.
+
+<a href="{{ site.baseurl
+}}2013/07/30/practical-object-oriented-design-in-common-lisp-part-3.html">next/a><br/>
+<a href="{{ site.baseurl
+}}2013/07/27/practical-object-oriented-design-in-common-lisp-01.html">prev</a>

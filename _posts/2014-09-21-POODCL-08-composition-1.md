@@ -413,3 +413,7 @@ shares with `TIRE`, `HANDLEBARS`, `SEAT`, etc, not the container
 object they happen to be stored in.
 
 We'll see what I came up with for that in part 2.
+
+next</br/>
+<a
+href="{{ site.baseurl }}2013/11/10/POODCL-07-roles-mixins-templates.html">prev</a>
