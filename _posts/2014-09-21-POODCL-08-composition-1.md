@@ -3,7 +3,7 @@ layout: post
 title: "POODCL part 8: Composition, part 1"
 description: ""
 category:
-tags: [lisp, clos, poodr]
+tags: lisp, clos, poodr
 date: "2014-09-21 07:54:31 AM"
 ---
 {% include JB/setup %}
