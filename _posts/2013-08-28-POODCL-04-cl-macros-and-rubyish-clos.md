@@ -8,13 +8,11 @@ date: 2013-08-28 20:16:01 -0700
 ---
 <!-- {% include JB/setup %} -->
 
-<a
-href="{{ site.baseurl }}2013/07/27/practical-object-oriented-design-in-common-lisp-01.html">I
-mentioned</a> that we could write a Lisp macro to allow us to define
-class instance-variables like Ruby does. I think it's worth seeing
-this, not only to see some of the usefulness of Lisp macros but to see
-some of the considerations you have to make when using them to extend
-Lisp.
+[I mentioned]({% post_url 2013-07-27-practical-object-oriented-design-in-common-lisp-01 %}) that
+we could write a Lisp macro to allow us to define class
+instance-variables like Ruby does. I think it's worth seeing this, not
+only to see some of the usefulness of Lisp macros but to see some of
+the considerations you have to make when using them to extend Lisp.
 
 <!-- more -->
 
@@ -139,6 +137,6 @@ Even if we don't do exactly this, we will probably write macros around
 `DEFCLASS` in just this way, and as an example, it's not too bad.
 
 
-[next]({{ site.baseurl }}{% post_url 2013-09-08-poodcl-part-5-duckish-typing %})
+[next]({% post_url 2013-09-08-poodcl-part-5-duckish-typing %})
 
-[prev]({{ site.baseurl }}{% post_url 2013-07-30-practical-object-oriented-design-in-common-lisp-part-3 %})
+[prev]({% post_url 2013-07-30-practical-object-oriented-design-in-common-lisp-part-3 %})

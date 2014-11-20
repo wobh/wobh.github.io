@@ -417,4 +417,4 @@ We'll see what I came up with for that in part 2.
 
 ~~next~~
 
-[prev]({{ site.baseurl }}{% post_url 2013-11-10-POODCL-07-roles-mixins-templates %})
+[prev]({% post_url 2013-11-10-POODCL-07-roles-mixins-templates %})

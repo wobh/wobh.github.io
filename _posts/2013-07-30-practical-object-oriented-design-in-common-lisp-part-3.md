@@ -165,7 +165,7 @@ We've already avoided one dependency, by using multiple-dispatch with
 our <code>GEAR-INCHES</code> method, but there's some other
 dependencies worth considering next.
 
-[next]({{ site.baseurl }}{% post_url 2013-08-28-POODCL-04-cl-macros-and-rubyish-clos %})
+[next]({% post_url 2013-08-28-POODCL-04-cl-macros-and-rubyish-clos %})
 
-[prev]({{ site.baseurl }}{% post_url 2013-07-28-practical-object-oriented-design-in-common-lisp-part-2 %})
+[prev]({% post_url 2013-07-28-practical-object-oriented-design-in-common-lisp-part-2 %})
 

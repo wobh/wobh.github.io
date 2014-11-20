@@ -102,4 +102,4 @@ wheel class. In further articles, I'll take a closer look at these
 transformations from bad code to good to see what they mean in Common
 Lisp.
 
-[next]({{ site.baseurl }}{% post_url 2013-07-28-practical-object-oriented-design-in-common-lisp-part-2 %})
+[next]({% post_url 2013-07-28-practical-object-oriented-design-in-common-lisp-part-2 %})

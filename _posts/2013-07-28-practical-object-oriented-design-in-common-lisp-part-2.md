@@ -176,6 +176,6 @@ system, and makes the system even more flexible.
 
 Next, hiding data structures.
 
-[next]({{ site.baseurl }}{% post_url 2013-07-30-practical-object-oriented-design-in-common-lisp-part-3 %})
+[next]({% post_url 2013-07-30-practical-object-oriented-design-in-common-lisp-part-3 %})
 
-[prev]({{ site.baseurl }}{% post_url 2013-07-27-practical-object-oriented-design-in-common-lisp-01 %})
+[prev]({% post_url 2013-07-27-practical-object-oriented-design-in-common-lisp-01 %})
