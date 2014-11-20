@@ -378,7 +378,6 @@ best, even for `INITIALIZE-INSTANCE` methods, if we could limit how
 much has to be known outside the class implementation. For this
 iteration of demo code, I think we've done enough.
 
-<a
-href="{{ site.baseurl }}2014/11/10/POODCL-07-roles-mixins-templates.html">next</a><br/>
-<a
-href="{{ site.baseurl }}2013/09/08/poodcl-part-5-duckish-typing.html">prev</a>
+[next]({{ site.baseurl }}{% post_url 2013-11-10-POODCL-07-roles-mixins-templates %})
+
+[prev]({{ site.baseurl }}{% post_url 2013-09-08-poodcl-part-5-duckish-typing %})

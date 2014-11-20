@@ -138,7 +138,7 @@ concerns, so in Ruby this is good and useful syntax.
 Even if we don't do exactly this, we will probably write macros around
 `DEFCLASS` in just this way, and as an example, it's not too bad.
 
-<a
-href="{{ site.baseurl }}2013/09/08/poodcl-part-5-duckish-typing.html">next</a><br/>
-<a
-href="{{ site.baseurl }}2013/07/31/practical-object-oriented-design-in-common-lisp-part-3.html">last</a>
+
+[next]({{ site.baseurl }}{% post_url 2013-09-08-poodcl-part-5-duckish-typing %})
+
+[prev]({{ site.baseurl }}{% post_url 2013-07-30-practical-object-oriented-design-in-common-lisp-part-3 %})

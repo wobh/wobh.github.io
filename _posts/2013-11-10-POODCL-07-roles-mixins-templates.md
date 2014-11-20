@@ -282,7 +282,7 @@ with a more challenging example.
 However, Metz also argues that having "wide and shallow" class
 heirarchy is easier for humans to reason about. But surely, there are
 problem domains complex enough to all but require it. With that
-restriction, we might find ourselve creating arane, strangely named
+restriction, we might find ourselve creating arcane, strangely named
 classes which only serve the template pattern, while all our
 functionality gets segmented into modules which get distributed over
 the pattern. This could be easy enough to reason about, but it seems
@@ -299,7 +299,6 @@ problem, or if they are fancy way of calling `super` in Ruby. But with
 the method combining powers of CLOS, they at least allow us to have
 the effect of inheritable, extensible template methods.
 
-<a
-href="{{ site.baseurl }}2014/09/21/POODCL-08-composition-1.html">next</a><br/>
-<a
-href="{{ site.baseurl }}2013/09/11/poodcl-part-6-inheritance.html">prev</a>
+[next]({{ site.baseurl }}{% post_url 2014-09-21-POODCL-08-composition-1 %})
+
+[prev]({{ site.baseurl }}{% post_url 2013-09-11-poodcl-part-6-inheritance %})

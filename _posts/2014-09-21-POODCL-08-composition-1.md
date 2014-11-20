@@ -403,17 +403,18 @@ first, because it confused me for a long time, and it wasn't until I
 read some more of about the Composite pattern in other books that I
 think I figured it out.
 
-The issue is that the [example implementation](https://github.com/skmetz/poodr/blob/master/chapter_8.rb#L422), translated here, really
-just barely implements a composite pattern. True, `BICYCLE` and
-`PARTS` share an interface in the `SPARES` method, and we can infer
-others, but I feel like I could fairly say it merely delegates the
-containing and filtering of parts to a specialized `PARTS` collection
-object. To be a Composite we need to create an interface that `BIKE`
-shares with `TIRE`, `HANDLEBARS`, `SEAT`, etc, not the container
-object they happen to be stored in.
+The issue is that the
+[example implementation](https://github.com/skmetz/poodr/blob/master/chapter_8.rb#L422),
+translated here, really just barely implements a composite
+pattern. True, `BICYCLE` and `PARTS` share an interface in the
+`SPARES` method, and we can infer others, but I feel like I could
+fairly say it merely delegates the containing and filtering of parts
+to a specialized `PARTS` collection object. To be a Composite we need
+to create an interface that `BIKE` shares with `TIRE`, `HANDLEBARS`,
+`SEAT`, etc, not the container object they happen to be stored in.
 
 We'll see what I came up with for that in part 2.
 
-next</br/>
-<a
-href="{{ site.baseurl }}2013/11/10/POODCL-07-roles-mixins-templates.html">prev</a>
+~~next~~
+
+[prev]({{ site.baseurl }}{% post_url 2013-11-10-POODCL-07-roles-mixins-templates %})

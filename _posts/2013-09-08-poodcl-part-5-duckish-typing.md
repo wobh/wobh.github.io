@@ -165,7 +165,6 @@ making the events a class, and define methods for it. I'll consider
 carefully those methods, and how they can work with the other
 objects in the Wizard's Castle game.
 
-<a
-href="{{ site.baseurl }}2013/09/11/poodcl-part-6-inheritance.html">next</a>
-<a
-href="{{ site.baseurl }}2013/08/28/POODCL-04-cl-macros-and-rubyish-clos.html">prev</a>
+[next]({{ site.baseurl }}{% post_url 2013-09-11-poodcl-part-6-inheritance %})
+
+[prev]({{ site.baseurl }}{% post_url 2013-08-28-POODCL-04-cl-macros-and-rubyish-clos %})

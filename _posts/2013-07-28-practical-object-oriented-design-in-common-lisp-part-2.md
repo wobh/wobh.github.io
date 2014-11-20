@@ -160,9 +160,9 @@ you can make changes to what the method call returns, further
 isolating the functionality. There are also <code>:before</code> and
 <code>:after</code> methods you can define which you can use to setup
 side effects; they don't return anything to the method call, they just
-get triggered, either before or after it, and inside the :around
-method. You can make as many of these ancillary methods as you want,
-even define how they combine.
+get triggered, either before or after it, and inside the
+<code>:around</code> method. You can make as many of these ancillary
+methods as you want, even define how they combine.
 
 In this way, you can preserve the accessor method (or any other method
 you define), but add all kinds of features to the same method call,
@@ -176,7 +176,6 @@ system, and makes the system even more flexible.
 
 Next, hiding data structures.
 
-<a href="{{ site.baseurl
-}}2013/07/30/practical-object-oriented-design-in-common-lisp-part-3.html">next/a><br/>
-<a href="{{ site.baseurl
-}}2013/07/27/practical-object-oriented-design-in-common-lisp-01.html">prev</a>
+[next]({{ site.baseurl }}{% post_url 2013-07-30-practical-object-oriented-design-in-common-lisp-part-3 %})
+
+[prev]({{ site.baseurl }}{% post_url 2013-07-27-practical-object-oriented-design-in-common-lisp-01 %})
