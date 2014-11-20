@@ -103,4 +103,4 @@ transformations from bad code to good to see what they mean in Common
 Lisp.
 
 <a href="{{ site.baseurl
-}}2013/07/28/practical-object-oriented-design-in-common-lisp-part-2.html">next/a><br/>
+}}2013/07/28/practical-object-oriented-design-in-common-lisp-part-2.html">next</a><br/>
