@@ -415,6 +415,6 @@ to create an interface that `BIKE` shares with `TIRE`, `HANDLEBARS`,
 
 We'll see what I came up with for that in part 2.
 
-~~next~~
+[next]({% post_url 2014-12-07-POODCL-09-composition-2 %})
 
 [prev]({% post_url 2013-11-10-POODCL-07-roles-mixins-templates %})
