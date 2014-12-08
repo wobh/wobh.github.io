@@ -2,4 +2,5 @@ name: WOBH
 markdown: redcarpet
 highligher: pygments
 permalink: date
+exclude: [vendor]
 excerpt_separator: "<!-- more -->"
