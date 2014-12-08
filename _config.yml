@@ -3,4 +3,5 @@ markdown: redcarpet
 highligher: pygments
 permalink: date
 exclude: [vendor]
+timezone: America/Los_Angeles
 excerpt_separator: "<!-- more -->"
