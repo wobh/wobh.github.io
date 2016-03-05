@@ -1,6 +1,5 @@
 name: WOBH
-markdown: redcarpet
-highligher: pygments
+markdown: kramdown
 permalink: date
 exclude: [vendor]
 timezone: America/Los_Angeles
