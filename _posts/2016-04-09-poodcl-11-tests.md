@@ -8,7 +8,7 @@ date: "2016-04-09 15:30:00"
 ---
 {% include JB/setup %}
 
-This has been a long time in coming and this post is long, in the
+This has been a long time in coming and this post is long in the
 reading. Chapter 9, the last chapter of POODR, is called "Designing
 Cost-Effective Tests" and might be my favorite chapter. 
 
@@ -368,7 +368,7 @@ As I mentioned earlier, I think you can do quite effective testing of
 Common Lisp code using only Common Lisp. What follows is adapted from
 a comment I made on exercism.io about it:
 
-Use `assert` for all assertions positive or negative 
+Use `assert` for all assertions positive or negative.
 
 Use either or both of `assert` and `check-type` to check on stateful
 things either before or after or both when a change is expected.
@@ -385,9 +385,9 @@ make more sense considering the above alternative.
 
 Use `flet` or `labels` to mock functions and methods. 
 
-Use `macrolet` to mock macros
+Use `macrolet` to mock macros.
 
-Use `symbol-macrolet` to mock places
+Use `symbol-macrolet` to mock places.
 
 Use `let` or `let*` to mock values either dynamic and lexical. This
 deserves some additional words. 
@@ -407,17 +407,14 @@ Use `time` for basic benchmarking and `room` to check on memory.
 Use `trace` to get a report about a function as it runs (and use
 `untrace` to turn off reporting). 
 
-Use `step` step through it a
-process and inspect it along the way. 
+Use `step` step through it a process and inspect it along the way.
 
-Use some combination of `macroexpand`, or `macroexpand-1` and
-`pprint` to debug macros. 
+Use `pprint` with `macroexpand` or `macroexpand-1` to debug macros.
 
 Use `disassemble` to look at what machine code your program will
 compile to. 
 
-Use `describe` and `inspect` are both useful to report on and interact
-with your code.
+Use `describe` and `inspect` to report on and interact with your code.
 
 Use readtime conditionals on your inline tests and setup a `:testing`
 in `*features*` to make sure they only run when you want them enabled.
