@@ -1,6 +1,6 @@
 name: WOBH
 markdown: kramdown
 permalink: date
-exclude: [vendor]
+exclude: [vendor, '*org']
 timezone: America/Los_Angeles
 excerpt_separator: "<!-- more -->"
