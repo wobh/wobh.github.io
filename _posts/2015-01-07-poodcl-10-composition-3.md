@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 10: Composition, part 3"
 description: ""
-category: 
-tags: [lisp, clos, poodr]
+category: poodcl
+tags: [common-lisp, clos, poodr]
 date: 2015-01-07 09:38:38
 ---
-{% include JB/setup %}
 
 During my investigation of the composite pattern, the following
 message came through loud and clear: 

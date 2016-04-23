@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 6: Inheritance"
 description: ""
-category: 
-tags: []
+category: poodcl
+tags: [common-lisp, clos, poodr, ruby]
 date: "2013-09-11 07:21:30 AM"
 ---
-{% include JB/setup %}
 
 Chapter 6 of POODR discusses inheritance of class properties. You can
 define subclasses whose objects have all the properties of their

@@ -2,8 +2,8 @@
 layout: post
 title: "Practical Object Oriented Design in Common Lisp part 2"
 description: ""
-category: 
-tags: []
+category: poodcl
+tags: [common-lisp, clos, poodr, ruby]
 date: 2013-07-28 00:48:31 -0700
 ---
 <!-- {% include JB/setup %} -->

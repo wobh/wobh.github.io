@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 11: Designing effective tests"
 description: ""
-category: 
-tags: [lisp, clos, poodr]
+category: poodcl
+tags: [common-lisp, clos, poodr]
 date: "2016-04-09 15:30:00"
 ---
-{% include JB/setup %}
 
 This has been a long time in coming and this post is long in the
 reading. Chapter 9, the last chapter of POODR, is called "Designing

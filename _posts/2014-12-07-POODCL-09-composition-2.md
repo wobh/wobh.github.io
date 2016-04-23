@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 9: Composition, part 2"
 description: ""
-category: 
-tags: [lisp, clos, poodr]
+category: poodcl
+tags: [common-lisp, clos, poodr]
 date: "2014-12-07 10:52:45 PM"
 ---
-{% include JB/setup %}
 
 At the end of chapter 8 of POODR I felt very puzzled and didn't have
 confidence in my understanding of the Composite pattern as presented,

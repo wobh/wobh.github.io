@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 8: Composition, part 1"
 description: ""
-category:
-tags: lisp, clos, poodr
+category: poodcl
+tags: [common-lisp, clos, poodr]
 date: "2014-09-21 07:54:31 AM"
 ---
-{% include JB/setup %}
 
 So it's been an epic year for me and I haven't had a lot of time to
 work on this, except here and there. I also ran into a bit of a

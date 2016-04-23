@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 5: Duckish typing"
 description: ""
-category: 
-tags: []
+category: poodcl
+tags: [common-lisp, clos, poodr, ruby]
 date: "2013-09-08 02:42:24 PM"
 ---
-{% include JB/setup %}
 
 > The purpose of object oriented design is to reduce the cost of change.
 

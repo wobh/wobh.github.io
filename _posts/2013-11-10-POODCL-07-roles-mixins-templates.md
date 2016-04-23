@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 7: Roles, mixins, and templates"
 description: ""
-category: 
-tags: [lisp, clos, poodr]
+category: poodcl
+tags: [common-lisp, clos, poodr]
 date: "2013-11-10 09:55:45 AM"
 ---
-{% include JB/setup %}
 
 Chapter 7 of POODR opens with the question of what would happen if we
 need to develop recumbent mountain bikes? This is where we begin to

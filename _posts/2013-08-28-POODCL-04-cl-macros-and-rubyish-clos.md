@@ -2,11 +2,10 @@
 layout: post
 title: "POODCL part 4: Rubyish attr_accessors for CLOS"
 description: ""
-category: 
-tags: []
+category: poodcl
+tags: [common-lisp, clos, poodr, ruby]
 date: 2013-08-28 20:16:01 -0700
 ---
-<!-- {% include JB/setup %} -->
 
 [I mentioned]({% post_url 2013-07-27-practical-object-oriented-design-in-common-lisp-01 %}) that
 we could write a Lisp macro to allow us to define class
