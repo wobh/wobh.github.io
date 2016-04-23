@@ -6,7 +6,6 @@ category: poodcl
 tags: [common-lisp, clos, poodr, ruby]
 date: 2013-07-30 22:58:28 -0700
 ---
-<!-- {% include JB/setup %} -->
 
 Hiding data structures in the next strategy Metz discusses in
 Chapter 2. Just as hiding instance variables with accessors, is a good
