@@ -1,23 +1,20 @@
 ---
-layout: home
+layout: page
 title: Will's Ostensible Blog Hobby
 ---
 
-{% include header.html %}
-
 <section>
-  <h2>Will's Ostensible Blog Hobby</h2>
-
+  <h2>{{ page.title }}</h2>
   <p><a href="/">Commit every day.</a></p>
-</section>
 
-<section class="blog">
-  {% for post in site.posts %}
-  <article>
-    <h3><a href="{{ post.url }}">{{ post.date }}</a></h3>
-    <h4>{{ post.title }}</h4>
-    {{ post.excerpt }}
-    <p><a href="{{ post.url }}">...</a></p>
-  </article>
-  {% endfor %}
+  <section class="blog">
+{% for post in site.posts %}
+    <article>
+      <h3><a href="{{ post.url }}">{{ post.date }}</a></h3>
+      <h4>{{ post.title }}</h4>
+{{ post.excerpt }}
+      <p><a href="{{ post.url }}">...</a></p>
+    </article>
+{% endfor %}
+  </section>
 </section>

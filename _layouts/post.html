@@ -1,28 +1,16 @@
-<!doctype html>
-<html>
-{% include head.html %}
-  <body>
+---
+layout: page
+---
 
-    <div class="wrapper">
-
-{% include header.html %}
-
-      <section>
-	<h2>Will's Ostensible Blog Hobby</h2>
-	  <p><a href="/blog.html">WOBH blah blog</a>
-	<section>
-	  <hgroup>
-	    <h3>{{ page.date }}</h3>
-	    <h4>{{ page.title }}</h4>
-	  </hgroup>
+<section>
+  <h2>Will's Ostensible Blog Hobby</h2>
+  <p><a href="/blog.html">WOBH blah blog</a>
+  <section>
+    <hgroup>
+      <h3>{{ page.date }}</h3>
+      <h4>{{ page.title }}</h4>
+    </hgroup>
 
 {{ content }}
-        </section>
-      </section>
-
-{% include footer.html %}
-    </div>
-    <script src="/javascripts/scale.fix.js"></script>
-    
-  </body>
-</html>
+  </section>
+</section>
