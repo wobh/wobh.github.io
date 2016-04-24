@@ -1,0 +1,28 @@
+---
+layout: null
+title : RSS Feed
+---
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>{{ page.title }}</title>
+    <description>{{ site.data.blog.title }} - {{ site.data.author.name }}</description>
+    <managingEditor>{{ site.data.author.email }} ({{ site.data.author.name }})</managingEditor>
+    <link>{{ site.production_url }}{{ site.data.syndication.rss.path }}</link>
+    <link>{{ site.production_url }}</link>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <ttl>1800</ttl>
+
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title }}</title>
+      <description>{{ post.content | xml_escape }}</description>
+      <link>{{ site.production_url }}{{ post.url }}</link>
+    <guid>{{ site.production_url }}{{ post.id }}</guid>
+    <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

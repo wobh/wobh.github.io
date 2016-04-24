@@ -2,6 +2,6 @@ title: "Will's Ostensible Blog Hobby"
 slogan: "Commit every day."
 path: "/blog"
 categories:
-  path: "/categories.html"
+  path: "/blog/categories.html"
 tags:
-  path: "/tags.html"
+  path: "/blog/tags.html"
