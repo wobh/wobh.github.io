@@ -20,7 +20,9 @@ markdown: kramdown
 excerpt_separator: "<!-- more -->"
 
 ### Serving
+url: http://wobh.github.io
 
+### Outputting
 permalink: date
 # paginate: 12
 timezone: America/Los_Angeles

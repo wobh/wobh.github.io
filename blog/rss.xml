@@ -9,8 +9,7 @@ title : RSS Feed
     <title>{{ page.title }}</title>
     <description>{{ site.data.blog.title }} - {{ site.data.author.name }}</description>
     <managingEditor>{{ site.data.author.email }} ({{ site.data.author.name }})</managingEditor>
-    <link>{{ site.url }}{{ site.data.syndication.rss.path }}</link>
-    <link>{{ site.url }}</link>
+    <link>{{ site.url }}{{ site.data.blog.rss.path }}</link>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <ttl>1800</ttl>
