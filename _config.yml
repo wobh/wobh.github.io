@@ -3,26 +3,34 @@
 # collections:  null
 #   - a_collection
 
+
 ### Handling Reading
 
 exclude: [vendor, '*org']
 
+
 ### Filtering Content
+
 
 ### Plugins
 
 # whitelist: []
 # gems:      []
 
+
 ### Conversion
 
 markdown: kramdown
 excerpt_separator: "<!-- more -->"
 
+
 ### Serving
+
 url: http://wobh.github.io
 
+
 ### Outputting
+
 permalink: date
 # paginate: 12
 timezone: America/Los_Angeles
