@@ -3,14 +3,13 @@ layout: page
 ---
 
       <section>
-        <h2>Will's Ostensible Blog Hobby</h2>
-        <p><a href="/blog.html">WOBH blah blog</a>
+        <h2>{{ site.data.blog.title }}</h2>
+        <p><a href="{{ site.data.blog.path }}">{{ site.data.blog.slogan }}</a>
         <article>
           <hgroup>
             <h3>{{ page.date }}</h3>
             <h4>{{ page.title }}</h4>
           </hgroup>
-
 {{ content }}
         </article>
       </section>

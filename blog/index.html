@@ -1,22 +1,22 @@
 ---
 layout: page
-title: Will's Ostensible Blog Hobby
+title: WOBH blah blog
 ---
 
       <section>
-        <h2>{{ page.title }}</h2>
-        <p><a href="/">Commit every day.</a></p>
+        <h2>{{ site.data.blog.title }}</h2>
+        <p><a href="/">{{ site.data.blog.slogan }}</a></p>
 
-	<p><a href="/categories.html">categories</a> <a href="/tags.html">tags</a></p>
+	<p><a href="{{ site.data.blog.categories.path }}">categories</a> <a href="{{ site.data.blog.tags.path }}">tags</a></p>
 
         <section class="blog">
-{% for post in site.posts %}
+	  {% for post in site.posts %}
           <article>
             <h3><a href="{{ post.url }}">{{ post.date }}</a></h3>
             <h4>{{ post.title }}</h4>
 {{ post.excerpt }}
             <p><a href="{{ post.url }}">...</a></p>
           </article>
-{% endfor %}
+	  {% endfor %}
         </section>
       </section>
