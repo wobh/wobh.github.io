@@ -7,7 +7,7 @@ title : Atom Feed
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ page.title }}</title>
   <link href="{{ site.url }}{{ site.data.blog.atom.path }}" rel="self"/>
-  <updated>{{ site.time | date_to_rfc822 }}</updated>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ site.url }}</id>
   <author>
     <name>{{ site.data.author.name }}</name>
