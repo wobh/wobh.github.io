@@ -84,10 +84,10 @@ accessor functions for slots if specified:
 
 And now we can use them in the ratio method
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod ratio ((gear gear))
-  (/ (chainring gear) (cog gear))))
-{% endhighlight %}
+  (/ (chainring gear) (cog gear)))
+~~~~~
 
 The macro <code>WITH-ACCESSORS</code> allows you to use the accessor
 methods, but requires you define aliases for them:
