@@ -30,7 +30,7 @@ Lets look at one of Metz's early examples and see how we might
 implement it in CLOS. Here's the Gear class from chapter 2 "Designing
 Classes That Have a Single Responsibility."
 
-{% highlight ruby %}
+~~~~~ruby
 class Gear
   attr_reader :chainring, :cog
 
@@ -43,18 +43,18 @@ class Gear
     chainring / cog.to_f
   end
 end
-{% endhighlight %}
+~~~~~
 
 Implementing it in CLOS:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass gear ()
   ((chainring :reader chainring :initarg :chainring)
    (cog       :reader cog       :initarg :cog)))
 
 (defmethod ratio ((gear gear))
   (/ (chainring gear) (float (cog gear))))
-{% endhighlight %}
+~~~~~
 
 This isn't very exciting code in either language, but it's just an
 example. A few things to note, in Ruby we have some syntax to define
@@ -79,21 +79,21 @@ Let's see them in action:
 
 In Ruby:
 
-{% highlight ruby %}
+~~~~~ruby
 >> g = Gear.new(52, 11)
 => #<Gear:0x2a23520 @chainring=52, @cog=11>
 > g.ratio
 => 4.7272727272727275
-{% endhighlight %}
+~~~~~
 
 In Common Lisp:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (setf g (make-instance 'gear :chainring 52 :cog 11))
 #<GEAR #x2100B0135D>
 > (ratio g)
 4.7272725
-{% endhighlight %}
+~~~~~
 
 Over the course of chapter 2 Metz transforms the initial code,
 demonstrating by principles of OOP design how to make it work with a

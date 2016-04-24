@@ -14,30 +14,30 @@ Ruby modules and how to identify roles for your code, but before we
 discuss that aspect of we should look at the simplest answer in Common
 Lisp.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass recumbent-mountain (recumbent-bike mountain-bike) ())
-{% endhighlight %}
+~~~~~
 
 That's it.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 CL-USER> (tire-size (make-instance 'recumbent-mountain :rear-shock "Fox" 
                                    :flag "tall and red"))
 "28"
-{% endhighlight %}
+~~~~~
 
 We should note that the order of the superclasses matters for CLOS
 objects. Here's `MOUNTAIN-RECUMENT`:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass mountain-recumbent (mountain-bike recumbent-bike) ())
-{% endhighlight %}
+~~~~~
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 CL-USER> (tire-size (make-instance 'mountain-recumbent :flag "tall and yellow" 
                                    :rear-shock "Fox"))
 "2.1"
-{% endhighlight %}
+~~~~~
 
 Order of the superclasses is defines the "class precedence list" which
 CLOS's uses for method combination.
@@ -66,7 +66,7 @@ need to be scheduled can use.
 Here's a Common Lisp implementation of the `Schedule` class from
 [POODR 148](https://github.com/skmetz/poodr/blob/master/chapter_7.rb#L1"):
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass schedule ()
   ((start-date :accessor start-date :initarg :start-date)
    (end-date :accessor end-date :initarg :end-date)))
@@ -75,7 +75,7 @@ Here's a Common Lisp implementation of the `Schedule` class from
   (with-accessors ((start start-date) (end end-date)) schedule
     (format T "This ~S is not scheduled
   between ~A and ~A" schedule start end)))
-{% endhighlight %}
+~~~~~
 
 In principle this class is more-or-less ready to be a mixin or
 superclass. The `SCHEDULED?` method will respond for instances of
@@ -88,7 +88,7 @@ later.
 
 Here is a `BICYCLE` class which implements a scheduling protocol.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass bicycle ()
   ((size      :reader size      :initarg :size)
    (chain     :reader chain     :initarg :chain)
@@ -110,7 +110,7 @@ Here is a `BICYCLE` class which implements a scheduling protocol.
   (not (scheduled? bike 
                    (date-minus start-date (lead-days bike))
                    end-date)))
-{% endhighlight %}
+~~~~~
 
 A couple of notes here. We're going to suppose there's a package of
 date-time functions which define `DATE-MINUS` and `MAKE-DURATION` for
@@ -122,7 +122,7 @@ of course. The methods are all tied to `BICYCLE` objects. We would
 have to implement these methods for every class of object we want to
 schedule. What we need a mixin class for `SCHEDULABLE` objects.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass schedulable ()
   ((schedule  :writer schedule  :initargs :schedule)
    (lead-days :reader lead-days :initarg :lead-days))
@@ -141,12 +141,12 @@ schedule. What we need a mixin class for `SCHEDULABLE` objects.
   (not (scheduled? bike 
                    (date-minus start-date (lead-days bike))
                    end-date)))
-{% endhighlight %}
+~~~~~
 
 With this implementation we can easily setup other schedulable
 classes.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass vehicle (schedulable)
   ()
   (:default-initargs
@@ -156,7 +156,7 @@ classes.
   ()
   (:default-initargs
    :lead-days 4))
-{% endhighlight %}
+~~~~~
 
 This example demonstrates the basic inheritance we saw in
 [part 6](/2013/09/11/poodcl-part-6-inheritance.html), which is one
@@ -215,7 +215,7 @@ First, a refresher. Here's the Common Lisp `BICYCLE` and
 `MOUNTAIN-BIKE` classes. I've added an addition slot, `SEAT` for the
 purposes of demonstration.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass bicycle ()
   ((size      :reader size      :initarg :size)
    (chain     :reader chain     :initarg :chain)
@@ -241,36 +241,36 @@ purposes of demonstration.
 (defmethod initialize-instance :after ((mb mountain-bike) &key)
   (with-slots (spares rear-shock) mb
     (setf (getf spares :rear-shock) rear-shock)))
-{% endhighlight %}
+~~~~~
 
 Now lets look at a basic implementation of `MONSTER-MOUNTAIN-BIKE`:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass monster-mountain-bike (mountain-bike)
   ())
-{% endhighlight %}
+~~~~~
 
 Our concern is that `MONSTER-MOUNTAIN-BIKE` objects have be able to
 make their own specializations. For example, let's say they're hard on
 their seats, and have to carry a spare seat, in addition to everything
 else. We can specialize their own `INITIALIZE-INSTANCE :AFTER` method:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod initialize-instance :after ((mmb monster-mountain-bike) &key)
   (with-slots (spares seat) mmb
     (setf (getf spares :seat) seat)))
-{% endhighlight %}
+~~~~~
 
 Does it setup the `SPARES` slot as we hope?
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 CL-USER> (let ((mmb (make-instance 'monster-mountain-bike
                                    :rear-shock "Fox"
                                    :front-shock "Manitou"
                                    :seat "Brooks")))
            (spares mmb))
 (:SEAT "Brooks" :REAR-SHOCK "Fox" :CHAIN "10-speed" :TIRE-SIZE "2.1 inches")
-{% endhighlight %}
+~~~~~
 
 It does! Metz advises if you use the template method you should not
 subclass more than one generation, it seems like we can implement the

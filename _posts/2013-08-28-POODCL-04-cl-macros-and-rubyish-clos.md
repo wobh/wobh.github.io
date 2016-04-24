@@ -17,7 +17,7 @@ the considerations you have to make when using them to extend Lisp.
 
 First we'll need some functions to support creating slot definition lists.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defun defslot-accessible (accessor-type slot-name)
   "Make a slot definition from a slot-name and accessor-type keyword."
   (if (keywordp slot-name)
@@ -36,7 +36,7 @@ First we'll need some functions to support creating slot definition lists.
     (attr-accessor :accessor)
     (attr-reader   :reader)
     (attr-writer   :writer)))
-{% endhighlight %}
+~~~~~
 
 A couple of notes. 
 
@@ -54,7 +54,7 @@ it's a regular CLOS slot definition.
 Now we can build a macro that builds a `DEFCLASS` form from
 Ruby-like attr-accessor expressions.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmacro defclass-rubyish (name superclasses
                             &optional slots &rest options)
   `(defclass ,name ,superclasses
@@ -66,12 +66,12 @@ Ruby-like attr-accessor expressions.
                            (rest indirect-slot))
                   (type-error () (list indirect-slot))))
      ,@options))
-{% endhighlight %}
+~~~~~
 
 We have just extended Common Lisp. There's probably a more elegant
 way, but for now, let's just see it in action:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 CL-USER> (pprint
           (macroexpand-1
            '(defclass-rubyish rbcl ()
@@ -100,7 +100,7 @@ CL-USER> (defclass-rubyish rbcl ()
             :foo 0
             :qux 1))
 #<STANDARD-CLASS RBCL>
-{% endhighlight %}
+~~~~~
 
 The macro takes our Rubyish syntax and expands into a CLOS class
 definition. I'm not going to explain how the macro code-building works

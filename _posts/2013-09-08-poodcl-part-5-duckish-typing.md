@@ -31,7 +31,7 @@ depends on an argument of type `Mechanic` to work. Translating the
 examples from page 87 into Common Lisp shows a different side to the
 problem:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass trip ()
   ((bicycles  :reader :bicycles)
    (customers :reader :customers)
@@ -49,7 +49,7 @@ problem:
 (defmethod prepare-bicycles ((mechanic mechanic) &rest bicycles)
   (map 'list (lambda (bicycle) (prepare-bicycle mechanic bicycle)) 
        bicycles))
-{% endhighlight %}
+~~~~~
 
 The methods `PREPARE-BICYCLE` and `PREPARE-BICYCLES` more-or-less
 follow from earlier principles of specializing on their tasks, but as
@@ -61,7 +61,7 @@ POODR discusses how a programmer might feel tempted to build their own
 dispatching code to try to solve this problem. Translated to Common
 Lisp it looks like this:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass trip-coordinator () ())
 
 (defmethod buy-food ((trip trip) (tc trip-coordinator)))
@@ -81,7 +81,7 @@ Lisp it looks like this:
           (driver (progn
                     (apply #'gas-up preparer (vehicle trip))
                     (apply #'fill-water-tank preparer (vehicle trip)))))))
-{% endhighlight %}
+~~~~~
 
 Although it seems like the `PREPARE` method is nicely generalized and easy to
 extend, it doesn't reflect the relationship of the tasks. This is
@@ -96,7 +96,7 @@ But in CLOS, methods have their own type dispatch. If used properly,
 it has the effect that defining a specialized method for each class
 does in the Ruby example. Something like this:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod prepare ((trip trip) &rest preparers)
   (loop
      for preparer in preparers
@@ -114,7 +114,7 @@ does in the Ruby example. Something like this:
   (let ((vehicle (vehicle trip)))
     (gas-up vehicle)
     (fill-water-tank vehicle)))
-{% endhighlight %}
+~~~~~
 
 This isn't exactly the type insensitivity as in Ruby, the methods do
 depend on the type of object they recieve, but in Common Lisp we're
@@ -137,7 +137,7 @@ shows a method with some type conditions. It's not easily translatable
 without some distracting elements so consider the following code I
 used in my Wizard's Castle adaptation:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defun value-of-event (event &optional value-ref)
   "Get most specific information about event"
   (assert (event-p event))
@@ -145,7 +145,7 @@ used in my Wizard's Castle adaptation:
     (null        (first (last event)))
     (symbol      (rest (member value-ref event)))
     ((integer 0) (last event value-ref))))
-{% endhighlight %}
+~~~~~
 
 The first assertion is a kind of early failure type checking that Metz
 is leading us to be skeptical of. This function will only ever work on
