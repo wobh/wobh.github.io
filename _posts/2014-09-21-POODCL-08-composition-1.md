@@ -26,7 +26,7 @@ Here's a new look at the `BICYCLE` class which now has a size slot and
 a parts slot. The new `PARTS` class will be a collection object which
 is comprised of the parts of our bicycle.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defclass bicycle ()
   ((size :reader size :initarg :size)
@@ -35,7 +35,7 @@ is comprised of the parts of our bicycle.
 (defmethod spares ((bicycle bicycle))
   (spares (parts bicycle)))
 
-{% endhighlight %}
+~~~~~
 
 In this implementation we've delegated knowledge of all the components
 of the bicycle to the object in the `PARTS` slot. We have defined a
@@ -46,7 +46,7 @@ calling a to-be-defined `SPARES` method for whatever may occupy the
 Here's a `PARTS` class and two child classes reusing the
 implementations of `BICYCLE` classes from part 6.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defclass parts ()
   ((chain :reader chain :initarg :chain)
@@ -81,12 +81,12 @@ implementations of `BICYCLE` classes from part 6.
   (with-slots (spares rear-shock) mbp
     (setf (getf spares :rear-shock) rear-shock)))
 
-{% endhighlight %}
+~~~~~
 
 We can see that it works as expected, pretty much just like the code
 in part 6.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 CL-USER> (let ((rb (make-instance 'bicycle :size "L"
                                   :parts (make-instance 'road-bike-parts
@@ -101,7 +101,7 @@ CL-USER> (let ((mb (make-instance 'bicycle :size "L"
 "L"
 (:REAR-SHOCK "Fox" :CHAIN "10-speed" :TIRE-SIZE "2.1 inches")
 
-{% endhighlight %}
+~~~~~
 
 There's an unfortunate aspect of the next few examples in that the
 bike metaphor isn't necessarily a great example of the kind of
@@ -115,7 +115,7 @@ First, we refactor `PARTS` class, so that it's `PARTS` slot has a list
 `PART` objects, rather than properties. We're going to define `PART`
 and a `PRINT-OBJECT` method for it for these examples.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defclass parts ()
   ((parts :reader parts :initarg :parts)))
@@ -136,14 +136,14 @@ and a `PRINT-OBJECT` method for it for these examples.
       (format stream ":name ~A :description ~A :needs-spare ~A"
                      name description needs-spare))))
 
-{% endhighlight %}
+~~~~~
 
 Now we can define `PART` objects to use for composing bikes. In the
 following example we make a bunch of `PART` objects and then make two
 `BICYCLE` objects composing the parts list for them, in slightly
 different ways.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 CL-USER>(let* ((chain         (make-instance 'part :name  "chain"
                                              :description "10-speed"))
@@ -183,7 +183,7 @@ CL-USER>(let* ((chain         (make-instance 'part :name  "chain"
  #<PART :name tire-size :description 2.1 inches :needs-spare T>
  #<PART :name rear-shock :description Fox :needs-spare T>)
 
-{% endhighlight %}
+~~~~~
 
 One problem with this implementation is that the `PARTS` object
 doesn't behave much like we would expect a collection to behave. We
@@ -206,7 +206,7 @@ are also libraries which provide extensible collections objects. But
 possibly the simplest solution, which happens to be good for a great
 many uses, is simply something like these:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defmethod list-of ((parts parts))
   (coerce (parts parts) 'list))
@@ -214,7 +214,7 @@ many uses, is simply something like these:
 (defmethod list-of ((bike bicycle))
   (list-of (parts bike)))
 
-{% endhighlight %}
+~~~~~
 
 This is most similiar to the Ruby `to_a` method. It returns a list form of
 the collection (however implemented) that can be manipulated with the
@@ -240,7 +240,7 @@ the last chapter, we will make a parts factory which generates
 `BIKE-PARTS` objects. We'll use a properties list to setup up some
 templates for the factory.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defparameter *road-config*
   (list
@@ -255,12 +255,12 @@ templates for the factory.
    :front-shock "Manitou"
    :rear-shock "Fox"))
 
-{% endhighlight %}
+~~~~~
 
 These are basic property lists, assigned to dynamic variables. We
 expect to use them with a bike parts factory like this:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defun (parts-factory parts-config
                       &key
@@ -277,7 +277,7 @@ expect to use them with a bike parts factory like this:
                 :description (getf :description part-config)
                 :needs_spare (getf :needs-spare part-config)))))
 
-{% endhighlight %}
+~~~~~
 
 You might fairly wonder why we don't use inheritance for this as there
 doesn't seem to be any advantage to this except to preserve the
@@ -288,7 +288,7 @@ focused on the particular model.
 As an extreme example of the kind of thing we're avoiding, consider
 how we might design a bike object with many mixin part classes:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defmacro defbikepart (part-name slot-name doc-string)
   `(prog1
@@ -318,7 +318,7 @@ how we might design a bike object with many mixin part classes:
   ((spares :accessor spares :initarg :spares
            :documentation "Spare parts")))
 
-{% endhighlight %}
+~~~~~
 
 Although each parent class provides slots and behavior to the child
 class, it also inherits particular behaviors simply from being
@@ -333,7 +333,7 @@ create a "has a" relationship from bicycle objects to it's parts.
 Implementing Metz's design in Common Lisp, here's one way we might
 compose the `BICYCLE` class with a collection of parts:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 
 (defclass bicycle ()
   ((size :reader size :initarg :size)
@@ -392,7 +392,7 @@ compose the `BICYCLE` class with a collection of parts:
    :front-shock "Manitou"
    :rear-shock "Fox"))
 
-{% endhighlight %}
+~~~~~
 
 This chapter sums up with a discussion of the virtues and faults of
 designing objects in composition verses inheritance. It's an important
