@@ -5,3 +5,7 @@ categories:
   path: "/blog/categories.html"
 tags:
   path: "/blog/tags.html"
+atom:
+  path: "/blog/atom.xml"
+rss:
+  path: "/blog/rss.xml"

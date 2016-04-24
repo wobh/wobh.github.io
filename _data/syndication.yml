@@ -1,7 +1,0 @@
-# Syndication data
-
-rss:
-  path: "/rss.xml"
-
-atom:
-  path: "/atom.xml"
