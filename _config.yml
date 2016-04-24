@@ -1,6 +1,26 @@
-name: WOBH
-markdown: kramdown
-permalink: date
+### Where things are
+
+# collections:  null
+#   - a_collection
+
+### Handling Reading
+
 exclude: [vendor, '*org']
-timezone: America/Los_Angeles
+
+### Filtering Content
+
+### Plugins
+
+# whitelist: []
+# gems:      []
+
+### Conversion
+
+markdown: kramdown
 excerpt_separator: "<!-- more -->"
+
+### Serving
+
+permalink: date
+# paginate: 12
+timezone: America/Los_Angeles
