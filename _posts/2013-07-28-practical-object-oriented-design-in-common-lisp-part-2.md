@@ -19,7 +19,7 @@ methods instead of directly referring to them.
 
 In this code the ratio method calls on the instance variables directly.
 
-{% highlight ruby %}
+~~~~~ruby
 class Gear
   def initialize(chainring, cog)
     @chainring = chainring
@@ -30,12 +30,12 @@ class Gear
     @chainring / @cog.to_f
   end
 end
-{% endhighlight %}
+~~~~~
 
 This code defines reader methods for it's instance variables and the
 ratio method uses those:
 
-{% highlight ruby %}
+~~~~~ruby
 class Gear
   attr_reader :chainring, :cog
 
@@ -48,13 +48,13 @@ class Gear
     chainring / cog.to_f
   end
 end
-{% endhighlight %}
+~~~~~
 
 In Common Lisp the method <code>SLOT-VALUE</code> can be used to
 access the values of Common Lisp slots. We can define a very primitive
 gear class and ratio method like so:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass gear ()
   ((chainring :initarg :chainring)
    (cog       :initarg :cog)))
@@ -62,25 +62,25 @@ gear class and ratio method like so:
 (defmethod ratio ((gear gear))
   (/ (slot-value gear 'chainring)
      (float (slot-value gear 'cog))))
-{% endhighlight %}
+~~~~~
 
 The macro <code>WITH-SLOTS</code> provides a convenient shorthand:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod ratio ((gear gear))
   (with-slots (chainring cog) gear
     (/ chainring (float cog))))
-{% endhighlight %}
+~~~~~
 
 Metz advises that all methods use accessors to access the values of
 instance variables. The <code>DEFCLASS</code> macro will create
 accessor functions for slots if specified:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass gear ()
   ((chainring :reader chainring :initarg :chainring)
    (cog       :reader cog       :initarg :cog)))
-{% endhighlight %}
+~~~~~
 
 And now we can use them in the ratio method
 
@@ -92,20 +92,20 @@ And now we can use them in the ratio method
 The macro <code>WITH-ACCESSORS</code> allows you to use the accessor
 methods, but requires you define aliases for them:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod ratio ((gear gear))
   (with-accessors ((cr chainring) (cg cog)) gear
     (/ ch (float cg))))
-{% endhighlight %}
+~~~~~
 
 For the sake of clarity, most lisp code I've seen uses aliases with the
 same name as the accessor:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod ratio ((gear gear))
   (with-accessors ((chainring chainring) (cog cog)) gear
     (/ chainring (float cog))))
-{% endhighlight %}
+~~~~~
 
 Stylistic considerations aside, unquestionably, using accessor methods
 like this is more flexible in both Common Lisp and Ruby. If you had to
@@ -122,7 +122,7 @@ accessor keyword for every slot that has one.
 
 Because Ruby methods belong to the class, you don't have to specify
 method arguments with a name and a class, like you do with Common
-Lisp's <code class="lisp">(defmethod method-name ((object-parameter
+Lisp's <code>(defmethod method-name ((object-parameter
 class-specializer)) ... )</code> method definitions. You can name the
 object parameter whatever you want to call it in the body of the
 method, but for clarity's sake, most method definitions I've seen give
@@ -139,20 +139,20 @@ when hiding instance variables/slots in accessors.
 As in Ruby, so in Common Lisp, you can redefine the accessor, to
 provide extra functionality and isolate features:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod chainring ((gear gear))
   (+ (slot-value gear 'chainring)
      *unanticipated-adjustment-factor*))
-{% endhighlight %}
+~~~~~
 
 But in Common Lisp you can, and really should, define what's called an
 "around method" like this:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defmethod chainring :around ((gear gear))
   (+ (call-next-method)
      *unanticipated-adjustment-factor*))
-{% endhighlight %}
+~~~~~
 
 Around methods wrap around the core method definition and are where
 you can make changes to what the method call returns, further
