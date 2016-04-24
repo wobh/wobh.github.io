@@ -9,8 +9,8 @@ title : RSS Feed
     <title>{{ page.title }}</title>
     <description>{{ site.data.blog.title }} - {{ site.data.author.name }}</description>
     <managingEditor>{{ site.data.author.email }} ({{ site.data.author.name }})</managingEditor>
-    <link>{{ site.production_url }}{{ site.data.syndication.rss.path }}</link>
-    <link>{{ site.production_url }}</link>
+    <link>{{ site.url }}{{ site.data.syndication.rss.path }}</link>
+    <link>{{ site.url }}</link>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <ttl>1800</ttl>
@@ -19,8 +19,8 @@ title : RSS Feed
     <item>
       <title>{{ post.title }}</title>
       <description>{{ post.content | xml_escape }}</description>
-      <link>{{ site.production_url }}{{ post.url }}</link>
-    <guid>{{ site.production_url }}{{ post.id }}</guid>
+      <link>{{ site.url }}{{ post.url }}</link>
+    <guid>{{ site.url }}{{ post.id }}</guid>
     <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
     </item>
     {% endfor %}
