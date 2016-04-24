@@ -35,7 +35,7 @@ I will probably be unsatisfied with, ultimately, but at least I tried.
 Considered generally we could begin implementing the composition
 pattern with these classes:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass component ()
   ((composite :initform nil :reader component-of))
   (:documentation "Base class of components"))
@@ -43,7 +43,7 @@ pattern with these classes:
 (defclass composite (component)
   ((components :initform nil :reader comprises))
   (:documentation "Base class of composites"))
-{% endhighlight %}
+~~~~~
 
 In this implementation the `COMPONENT` class provides a slot to link
 back to a single composite object. There is only a reader method,
@@ -64,7 +64,7 @@ With these constraints, almost all interaction with the data of objects
 of these classes must be through tightly bound methods which provide a
 simple coherent interface.
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defgeneric piece-p (piece whole)
   (:documentation "Test if component member of composite"))
 (defgeneric compose (piece whole)
@@ -101,7 +101,7 @@ simple coherent interface.
           ((not (equalp source whole))
            (dispose piece source)
            (compose piece whole)))))
-{% endhighlight %}
+~~~~~
 
 There are numerous problems with this implementation.
 
@@ -129,7 +129,7 @@ classes that can be inherited to implement a Composite design pattern.
 As naive as this implementation is, it's worth looking at what
 `BICYCLE` would look like if we use it. Here's my take:
 
-{% highlight common-lisp %}
+~~~~~common-lisp
 (defclass sizable ()
   ((size :reader size-of :initarg :size))
   (:documentation "Provides a size slot"))
@@ -187,7 +187,7 @@ As naive as this implementation is, it's worth looking at what
        for part in (remove-if-not #'sparep (comprises bike))
        do (compose part (spares bike))
        finally (return bike))))
-{% endhighlight %}
+~~~~~
 
 Taken altogether, this is *way* more complex than the implementation
 based on the one in POODR. I've all but abandoned the factory method
