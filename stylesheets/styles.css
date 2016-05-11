@@ -45,6 +45,8 @@ a small {
   display:block;
 }
 
+a code { color:#39c; }
+
 .wrapper {
   width:860px;
   margin:0 auto;
