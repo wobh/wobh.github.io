@@ -144,6 +144,8 @@ default arguments. I couldn't figure it out for quite a while, but
 while inquiring about it on the Slack Elixir group I noticed that the
 commit message for `String.printable?/1` explained it:
 
+    8f679e9a Explicitely[sic] declare argument names for functions with unnamed arguments.
+
 So the reason for this is documentary, so that documentation
 generators can print the function with sensible argument names were
 none may exist in the following definitions.
