@@ -11,6 +11,8 @@ exclude: [vendor, '*org']
 
 ### Filtering Content
 
+future: false
+show_drafts: false
 
 ### Plugins
 
@@ -27,7 +29,6 @@ excerpt_separator: "<!-- more -->"
 ### Serving
 
 url: http://wobh.github.io
-
 
 ### Outputting
 
