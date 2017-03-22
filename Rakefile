@@ -1,6 +1,7 @@
 require "rubygems"
 require 'rake'
 require 'yaml'
+require 'set'
 require 'time'
 
 SOURCE = "."
@@ -126,7 +127,14 @@ end # task :page
 
 desc "Launch preview environment"
 task :preview do
-  system "jekyll serve --watch --baseurl="
+  cmd = "jekyll serve --watch%s --baseurl="
+  valid_args = ["--drafts", "--future"]
+  given_args = ARGV.reduce(Set.new) { |acc, arg|
+    acc << arg if valid_args.member?(arg)
+    acc
+  }
+  arg_string = given_args.empty? ? "" : " " + given_args.to_a.join(" ")
+  system cmd % [arg_string]
 end # task :preview
 
 desc "Launch preview with drafts environment"
