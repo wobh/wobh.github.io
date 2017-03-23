@@ -11,9 +11,6 @@ exclude: [vendor, '*org']
 
 ### Filtering Content
 
-future: false
-show_drafts: false
-
 ### Plugins
 
 # whitelist: []
