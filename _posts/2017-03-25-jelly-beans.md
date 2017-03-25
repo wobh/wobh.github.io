@@ -5,4 +5,4 @@ categories: candyrev
 date: "2017-03-25 10:00 -0700"
 ---
 
-"Jelly Beans": I hate them so much, I can't even.
+"Jelly Beans": Beneath contempt.
