@@ -76,14 +76,14 @@ them.
 
 I recently fixed this bug in my adaptation of _Wumpus_ to Common Lisp:
 
-https://github.com/wobh/wumpus/commit/40731748af3b5ad18bc4dc9da46046b526033ad6
+[https://github.com/wobh/wumpus/commit/4073174](https://github.com/wobh/wumpus/commit/40731748af3b5ad18bc4dc9da46046b526033ad6)
 
 This code was written a few years ago when I was first learning CL, in
 an effort to figure out some stuff about "declarative" and "eventful"
 programming techniques I had been reading about---one reason why it's
 such an overwrought mess. Clearly, in changing the name of something,
 I overlooked the ONE place that name is actually used. _Quelle
-Embarrassment!_
+embarrassment!_
 
 On one hand, it was a dumb mistake. Overthinking this program has
 caused enough problems;
@@ -107,10 +107,15 @@ write something profoundly different, and I didn't know how.
 
 What would make this worth trying again? That's the sort of question
 I'm asking myself. The days are long gone when common systems were so
-resource poor that such "imperitive" programming like the original
-_Wumpus_ game were necessary. Certainly I need learn and practice
+resource poor that such "imperative" programming like the original
+_Wumpus_ game were necessary. Certainly I need to learn and practice
 the techniques for writing programs that "walk and talk at the same
-time" in in non-procedural domains.
+time" in non-procedural domains.
 
 Perhaps the real question is how do I make myself more concerned about
 more practical problems?
+
+(Update: I have belatedly realized that "as far as I know, nothing
+remotely like the structure literal code above exists for this sort of
+thing" is an extremely silly thing to have typed, in this
+circumstance. I should perhaps address that in another post.)
