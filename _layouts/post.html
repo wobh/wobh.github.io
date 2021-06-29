@@ -10,6 +10,26 @@ layout: page
             <h3>{{ page.date }}</h3>
             <h4>{{ page.title }}</h4>
           </hgroup>
+          {% if post.categories %}
+            {% assign categories = post.categories %}
+          {% else %}
+            {% assign categories = page.categories %}
+          {% endif %}
+          {% if categories != empty %}
+          <aside>
+            <p>Categories:&nbsp;{% for category in categories %}<a href="{{ site.data.blog.categories.path }}#{{ category }}-ref">{{ category }}</a>{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</p>
+          </aside>
+          {% endif %}
+          {% if post.tags %}
+            {% assign tags = post.tags %}
+          {% else %}
+            {% assign tags = page.tags %}
+          {% endif %}
+          {% if tags != empty %}
+          <aside>
+            <p>Tags:&nbsp;{% for tag in tags %}<a href="{{ site.data.blog.tags.path }}/tags.html#{{ tag }}-ref">{{ tag }}</a>{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</p>
+          </aside>
+          {% endif %}
 {{ content }}
         </article>
       </section>
