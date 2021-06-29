@@ -6,7 +6,7 @@
 
 ### Handling Reading
 
-exclude: [vendor, '*org']
+exclude: [vendor, '*org', '*~', '#*', '.#*']
 
 
 ### Filtering Content
