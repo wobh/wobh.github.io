@@ -26,7 +26,7 @@ Discussion below:
 The core concept here is "blankness" with classes having to define
 `#empty?`. The complementary notion of "presence" is defined as "not
 blank". There's no module to include, it's defined on `Object`. In
-/active<sub>support</sub>/core<sub>ext</sub>/object/blank.rb since v2.2 with `#blank?`
+`/active_support/core_ext/object/blank.rb` since v2.2 with `#blank?`
 being slightly older.
 
 It's interesting to note which native objects will be considered
@@ -70,7 +70,7 @@ debugged some gnarly conditional logic that abstracts to the same
 thing as the ternary conditions above, I welcome the ability to break
 a three statement expression down to a two.
 
-Defined in /active<sub>support</sub>/core<sub>ext</sub>/object/blank.rb, since v2.3.8.
+Defined in `/active_support/core_ext/object/blank.rb`, since v2.3.8.
 
 
 ##### `#in?` and `#presence_in`
@@ -78,7 +78,7 @@ Defined in /active<sub>support</sub>/core<sub>ext</sub>/object/blank.rb, since v
 -   <https://api.rubyonrails.org/classes/Object.html#method-i-in-3F>
 -   <https://api.rubyonrails.org/classes/Object.html#method-i-presence_in>
 
-Defined in /active<sub>support</sub>/core<sub>ext</sub>/object/inclusion.rb, `#in?` has
+Defined in `/active_support/core_ext/object/inclusion.rb`, `#in?` has
 been around since v3.1 and `#presence_in` since v4.1.8. This turns
 `#include?` (provided in all `Enumerable` objects) into a small
 protocol of it's own. While `#in?` is a largely syntactical nicety,
@@ -93,7 +93,7 @@ Another TIL I'm pretty excited about.
 -   <https://api.rubyonrails.org/classes/Object.html#method-i-try>
 -   <https://api.rubyonrails.org/classes/Object.html#method-i-try-21>
 
-Defined in /active<sub>support</sub>/core<sub>ext</sub>/object/try.rb, `#try` has been
+Defined in `/active_support/core_ext/object/try.rb`, `#try` has been
 around since v2.3.2 and `#try!` since v4.0.2.
 
 It happens I have a lot to say about `#try`. A lot of it is already
@@ -143,15 +143,17 @@ inheritable. Of course there was nothing stopping us from defining
 classes of object with a `#nil?` method and using that as a
 protocol. But, semantically, does that make sense? No Null Object is
 or can be an instance of `NilClass`. Also `#nil?` isn't used as a
-protocol for conditional operators or for `#compact` or any other
-method of that sort (can't actually think of others at the moment, but
-seems like there could be some) so the idea of using `#nil?` as a
-protocol doesn't quite work for me either.
+protocol for conditional operators or for `!`, or `#compact` or any
+other method of that sort (can't actually think of others at the
+moment, but seems like there could be some) so the idea of using
+`#nil?` as a protocol doesn't quite work for me either&#x2013;it's not used
+that way anywhere else, even though, it kinda seems like it should be.
 
 What's nice about these ActiveSupport utilities is that they are
 either protocol-based with methods supported in many other objects
 (`#empty?` or `include?`) or so generalized that the audacity of
-"monkey patching" `Object` and `NilClass` to support them, works.
+"monkey patching" `Object` and `NilClass` to support them, makes
+sense.
 
 On review, I'm starting to see a distinction to make for the
 `Enumerable` objects which have natural notions of emptyness and
