@@ -27,7 +27,7 @@ layout: page
           {% endif %}
           {% if tags != empty %}
           <aside>
-            <p>Tags:&nbsp;{% for tag in tags %}<a href="{{ site.data.blog.tags.path }}/tags.html#{{ tag }}-ref">{{ tag }}</a>{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</p>
+            <p>Tags:&nbsp;{% for tag in tags %}<a href="{{ site.data.blog.tags.path }}#{{ tag }}-ref">{{ tag }}</a>{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</p>
           </aside>
           {% endif %}
 {{ content }}
