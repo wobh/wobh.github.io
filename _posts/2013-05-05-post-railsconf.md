@@ -6,7 +6,6 @@ category:
 tags: []
 date: 2013-05-05 10:42:54 -0700
 ---
-{% include JB/setup %}
 
 Whew! 
 

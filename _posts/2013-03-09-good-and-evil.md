@@ -6,7 +6,6 @@ category:
 tags: []
 date: 2013-03-09 17:19:30 -0800
 ---
-{% include JB/setup %}
 
 <figure>
 <blockquote>

@@ -6,7 +6,6 @@ category:
 tags: []
 date: 2013-03-16 13:37:38 -0700
 ---
-{% include JB/setup %}
 
 Last week it seemed to me that something had been going awry in our
 pair challenges. I felt that our lack of pairing had left us somewhat

@@ -6,7 +6,6 @@ category:
 tags: []
 date: 2013-06-08 18:25:40 -0700
 ---
-{% include JB/setup %}
 
 This is the first weekend after my first week at my new job. I had a
 nice break between
