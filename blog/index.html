@@ -7,7 +7,10 @@ title: WOBH blah blog
         <h2>{{ site.data.blog.title }}</h2>
         <p><a href="/">{{ site.data.blog.slogan }}</a></p>
 
-	<p><a href="{{ site.data.blog.categories.path }}">categories</a> <a href="{{ site.data.blog.tags.path }}">tags</a></p>
+	<nav>
+	  <a href="{{ site.data.blog.categories.path }}">categories</a>
+	  <a href="{{ site.data.blog.tags.path }}">tags</a>
+	</nav>
 
         <section class="blog">
 	  {% for post in site.posts %}
