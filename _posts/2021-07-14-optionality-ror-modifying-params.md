@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Ruby on Rails: modifying params"
 date: "2021-07-14T20:00"
-tags: ["optionality", "Ruby", "Ruby On Rails"]
+tags: ["optionality", "ruby", "ruby-on-rails"]
 ---
 
 I'm under the impression that manipulating the incoming params to

@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Python: Truth Value Testing"
 date: "2021-09-04T10:00"
-tags: ["optionality", "Python"]
+tags: ["optionality", "python"]
 ---
 
 Python has, I think, a most admirable notion of "falsification". We'll

@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Ruby on Rails: modifying params--why not don't"
 date: "2021-07-18T10:15"
-tags: ["optionality", "Ruby", "Ruby On Rails"]
+tags: ["optionality", "ruby", "ruby-on-rails"]
 ---
 
 I talked with a couple of folks about my last post, and based on those

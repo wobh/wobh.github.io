@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Ruby: the fetch chain"
 date: "2021-10-17T20:15"
-tags: ["optionality", "Ruby"]
+tags: ["optionality", "ruby"]
 ---
 
 This one is a simple enough.

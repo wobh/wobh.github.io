@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Ruby on Rails: A blankness idiosyncrasy"
 date: "2021-09-03T19:30"
-tags: ["optionality", "Ruby", "Ruby on Rails"]
+tags: ["optionality", "ruby", "ruby-on-rails"]
 ---
 
 A colleague and I discovered a funny little oddity in the way

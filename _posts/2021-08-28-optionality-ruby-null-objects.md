@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Ruby: using the NullObject pattern"
 date: "2021-07-28T09:30"
-tags: ["optionality", "Ruby"]
+tags: ["optionality", "ruby"]
 ---
 
 Avdi Grimm has already written a very excellent little article about

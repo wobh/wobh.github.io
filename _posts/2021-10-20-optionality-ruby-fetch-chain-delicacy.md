@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Ruby: fetch chain delicacy"
 date: "2021-10-20T08:30"
-tags: ["optionality", "Ruby"]
+tags: ["optionality", "ruby"]
 ---
 
 It was pointed out to me that this example from the fetch chain post

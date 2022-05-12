@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Ruby on Rails: Active Support extensions"
 date: "2021-08-31T08:20"
-tags: ["optionality", "Ruby", "Ruby on Rails"]
+tags: ["optionality", "ruby", "ruby-on-rails"]
 ---
 
 ActiveSupport is a Ruby library full of useful little tools a few of

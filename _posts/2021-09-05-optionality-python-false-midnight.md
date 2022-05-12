@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Python: False Midnight"
 date: "2021-09-05T16:10"
-tags: ["optionality", "Python"]
+tags: ["optionality", "python"]
 ---
 
 It was brought to my attention that, for Python2, midnight was also
