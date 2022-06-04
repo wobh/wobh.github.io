@@ -6,8 +6,18 @@
 
 ### Handling Reading
 
-exclude: [vendor, '*org', '*~', '#*', '.#*']
-
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - '*org'
+  - '*~'
+  - '#*'
+  - '.#*'
 
 ### Filtering Content
 
@@ -22,6 +32,9 @@ future: false
 ### Conversion
 
 markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
 excerpt_separator: "<!-- more -->"
 
 
