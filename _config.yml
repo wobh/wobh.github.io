@@ -1,11 +1,24 @@
-### Where things are
+title: WOBH
+email: wobh@yahoo.com
+description: >-
+  Idle thoughts from an idle fellow
 
-# collections:  null
-#   - a_collection
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# url: http://wobh.github.io
+twitter_username: wobher
+github_username:  wobh
 
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+# whitelist: []
+# gems:      []
 
 ### Handling Reading
-
+# Exclude from processing.
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -14,36 +27,30 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - '*org'
-  - '*~'
-  - '#*'
-  - '.#*'
+  - README.md
+  - "*org"
+  - "*~"
+  - "#*"
+  - ".#*"
+
+### Where things are
+
+# collections:  null
+#   - a_collection
 
 ### Filtering Content
 
 future: false
 
-### Plugins
-
-# whitelist: []
-# gems:      []
-
-
-### Conversion
-
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
-excerpt_separator: "<!-- more -->"
-
-
 ### Serving
 
-url: http://wobh.github.io
 
 ### Outputting
 
+timezone: America/Detroit
+
 permalink: date
 # paginate: 12
-timezone: America/Detroit
+# paginate_path: "/blog/page:num/"
+
+excerpt_separator: "<!-- more -->"
