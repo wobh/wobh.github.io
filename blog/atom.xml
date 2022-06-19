@@ -1,6 +1,5 @@
 ---
 layout: null
-title : Atom Feed
 ---
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -11,7 +10,7 @@ title : Atom Feed
   <id>{{ site.url }}</id>
   <author>
     <name>{{ site.data.author.name }}</name>
-    <email>{{ site.data.author.email }}</email>
+    <email>{{ site.email }}</email>
   </author>
 
   {% for post in site.posts %}
