@@ -43,6 +43,17 @@ layout: default
     {{ content }}
   </div>
 
+  {% if page.navigation %}
+  <nav>
+    <ul>
+      {% for nav in page.navigation %}
+      {% assign nav_slug = nav.slug %}
+      <li>{{ nav.rel }}: <a href="{% post_url {{nav.slug}} %}">{{ nav.text }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
   {%- endif -%}

@@ -5,6 +5,13 @@ description: ""
 category: poodcl
 tags: [common-lisp, clos, poodr, ruby]
 date: "2013-09-08 02:42:24 PM"
+navigation:
+  - rel: next
+    slug: 2013-09-11-poodcl-part-6-inheritance
+    text: "POODCL 6: Inheritance"
+  - rel: prev
+    slug: 2013-08-28-POODCL-04-cl-macros-and-rubyish-clos
+    text: "POODCL 4: CL macros and Rubyish CLOS"
 ---
 
 > The purpose of object oriented design is to reduce the cost of change.
