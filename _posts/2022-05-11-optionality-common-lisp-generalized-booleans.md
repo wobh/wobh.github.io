@@ -2,7 +2,7 @@
 layout: post
 title: "Optionality in Common Lisp: Generalized Booleans"
 tags: ["optionality", "common-lisp"]
-date: "2022-05-11 19:00-0500"
+date: "2022-05-11 19:00-0400"
 ---
 
 Common Lisp has one "falsy" value: `nil`. Every non-`nil` value is
