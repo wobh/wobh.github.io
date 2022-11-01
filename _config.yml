@@ -19,20 +19,10 @@ plugins:
 
 ### Handling Reading
 # Exclude from processing.
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - README.md
-  - drafts/
-  - "*org"
-  - "*~"
-  - "#*"
-  - ".#*"
+exclude: [ "Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/", "README.md", "_drafts/", "*org", "*~", "#*"]
+
+# FIXME why can't I exclude this pattern: ".#*" ? Also why don't the
+# glob file matching work in YAML list style?
 
 ### Where things are
 
