@@ -6,7 +6,6 @@ description: >-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # url: http://wobh.github.io
-twitter_username: wobher
 github_username:  wobh
 
 # Build settings
@@ -45,3 +44,9 @@ permalink: date
 # paginate_path: "/blog/page:num/"
 
 excerpt_separator: "<!-- more -->"
+
+header_pages:
+  - about.html
+  - blog/index.html
+  - blog/categories.html
+  - blog/tags.html
