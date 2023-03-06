@@ -7,7 +7,7 @@ tags:
 - web-application-design
 --- 
 
-I talked about the "nomenlature knot" in [the last post](file:///2022/12/03/wad-crud-copy-actions-with-side-effects.html) but after
+I talked about the "nomenlature knot" in [the last post](/2022/12/03/wad-crud-copy-actions-with-side-effects.html) but after
 trying to write about it a few times, I came to realize this topic has
 more rabbit holes than <span class="underline">Watership Down</span>. So, I'm deferring my post(s)
 and maybe starting a new series on it. Since I would rather move
@@ -107,6 +107,9 @@ to ask are:
     -   administrative delete action
 -   How can "lifecycle" changes like this be logged, reported on, or
     audited?
+-   What/How are associated resources effected by this kind of
+    "delete"? (grateful thanks to the reader who suggested this)
+
 
 If soft deleted resources are managable by users, I think it's worth
 considering whether the semantics should be shifted to a "hide/show"
